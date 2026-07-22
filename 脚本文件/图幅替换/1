@@ -1,0 +1,18 @@
+    <itemGroup utype="itemGroup" name="itemGroup" id="{b502ed3d-2757-4165-987d-2a4df60976de}" fname="itemGroup" x="758" y="240.467" z="28180" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278215680" brushimage="Qt::SolidPattern" chgchd="1" x1="2" y1="25.5325" x2="32" y2="3.5325" trans="" layer="0" editable="1" udefpros="[label@名字@@0@@图符@1@0@1][type@类型@@1@O;I@O@0@0@1][*InIf@条件语句@@3@@@0@0@1]" cnnts="">
+        <polygon utype="polygon" name="polygon8218" id="{d23804d5-d81f-483b-952e-9bb03c860d26}" fname="" x="26.0202" y="0" z="28181" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278215680" brushimage="Qt::SolidPattern" trans="" layer="0" editable="1" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+            <point x="-4.11694" y="3.5325"/>
+            <point x="5.9798" y="3.5325"/>
+            <point x="-4.11694" y="25.5325"/>
+            <point x="5.9798" y="25.5325"/>
+        </polygon>
+        <line utype="line" name="line11807" id="{cf8235ab-a8dc-4b37-852f-8552a2c6d740}" fname="" x="20.7402" y="13.365" z="28182" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+            <point x="-2.87563" y="1.30461"/>
+            <point x="7.95538" y="1.30461"/>
+        </line>
+        <rect utype="rect" name="rect.3" id="{384aeed6-2ac0-4f16-a14b-a1058a556408}" fname="rect" x="0" y="5" z="28183" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278215680" brushimage="Qt::SolidPattern" rdx="10" rdy="10" x1="2" y1="16.4685" x2="18.0632" y2="2.65125" trans="" layer="0" editable="1" udefpros="[label@名字@@0@@矩形@1@0@1][*InIf@条件语句@@3@@@1@0@1]" cnnts=""/>
+        <text utype="text" name="text.0" id="{9ba2b68b-cae8-474b-aeb6-2931d81213d3}" fname="text" x="1" y="2" z="28184" label="M" font="Arial,10,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="[label@名字@@0@@文本@1@0@1][*InIf@条件语句@@3@@@1@0@1]" cnnts="">
+            <label>
+                <![CDATA[M]]>
+            </label>
+        </text>
+    </itemGroup>

@@ -1,0 +1,77 @@
+<itemGroup utype="DiRef" name="DIref" id="{922105c2-cd4e-4ebb-8161-cd314ae69fb2}" fname="DIref" x="52.705" y="35.3483" z="202" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::SolidPattern" chgchd="0" x1="-3e-06" y1="2.11667" x2="8.46667" y2="6.35" trans="" layer="0" editable="0" udefpros="[Name@算法名@@0@@@0@1@1][NewName@自定义算法名@@0@@@0@0@1][P1@点名@@0@@INPUTA@1@0@1][Version@版本@@0@@@0@0@][Shape@形状@@1@@@0@0@]" cnnts="P1,8.46667,4.23333">
+	<rect utype="rect" name="rect" id="{2be423da-7281-4685-ac3b-79a65ea4a020}" fname="rect" x="0" y="0" z="203" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4294967295" brushimage="Qt::SolidPattern" rdx="10" rdy="10" x1="-3e-06" y1="2.11667" x2="8.46667" y2="6.35" trans="" layer="0" editable="1" udefpros="" cnnts=""/>
+</itemGroup>
+<connectLine utype="connectLine" name="connectLine.2" id="{cffd34ae-5efd-4534-84cc-960521d4b2bc}" fname="connectLine" x="69.3385" y="43.4972" z="40001" pencolor="4278190080" penstyle="1" penwidth="0" trans="" layer="0" editable="1" udefpros="[startPoint@起始点@@0@@Not,{17a370f5-c378-46af-ad9c-7372c8473da8},AlgStOut@0@0@1][endPoint@结束点@@0@@Rs,{cf3000df-fe73-46fb-ac58-4d49fecb0d01},RESET@0@0@1]" cnnts="">
+	<point x="3.5278" y="0.3528"/>
+	<point x="6.3852" y="0.3528"/>
+	<point x="6.3852" y="0.317828"/>
+</connectLine>
+<connectLine utype="connectLine" name="connectLine" id="{8e1d4df1-193e-4034-94b4-3f910404bcf8}" fname="connectLine" x="92.0397" y="39.317" z="40001" pencolor="4278190080" penstyle="1" penwidth="0" trans="" layer="0" editable="1" udefpros="[startPoint@起始点@@0@@Rs,{cf3000df-fe73-46fb-ac58-4d49fecb0d01},AlgStOut@0@0@1][endPoint@结束点@@0@@Doref,{09bf3f24-f35c-4a02-8303-dc674359ba95},P1@0@0@1]" cnnts="">
+	<point x="-0.705605" y="0.264684"/>
+	<point x="14.2875" y="0.264684"/>
+	<point x="14.2875" y="0.264631"/>
+</connectLine>
+<itemGroup utype="Not" name="NOT" id="{17a370f5-c378-46af-ad9c-7372c8473da8}" fname="NOT" x="62.8121" y="40.6752" z="216" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::SolidPattern" chgchd="0" x1="0" y1="0" x2="10.0013" y2="6.35" trans="" layer="0" editable="0" udefpros="[Name@算法名@@0@@@1@1@1][NewName@自定义算法名@@0@@@1@0@1][AlgStOut@输出@@0@@@1@0@1][DIN1@输入@@0@@@1@0@1][OrderNo@算法执行顺序@@0@@2@0@0@1][Version@版本@@0@@@0@0@1][Shape@形状@@1@@@0@0@1]" cnnts="DIN1,0,3.175;AlgStOut,10.0542,3.175">
+	<itemGroup utype="itemGroup" name="itemGroup" id="{ce818ceb-d863-4698-9c97-b0b54cf9b4b9}" fname="itemGroup" x="0" y="1.31051" z="217" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::SolidPattern" chgchd="0" x1="0" y1="3.3776e-08" x2="10.0013" y2="3.70417" trans="" layer="0" editable="1" udefpros="" cnnts="">
+		<itemGroup utype="itemGroup" name="itemGroup" id="{d106a031-7b6a-4039-9c25-a17a5c7fa5cb}" fname="itemGroup" x="-0.264583" y="0" z="218" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::SolidPattern" chgchd="0" x1="2.91042" y1="3.3776e-08" x2="7.40833" y2="3.70417" trans="" layer="0" editable="1" udefpros="" cnnts="">
+			<ellipse utype="ellipse" name="ellipse" id="{1a25e509-cb89-4ebc-ad33-f59430c1ccc4}" fname="ellipse" x="5.10645" y="8.16901" z="219" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4294967295" brushimage="Qt::SolidPattern" close="0" stangle="0" spangle="5760" x1="6.77995" y1="1.54708" x2="5.8539" y2="2.30188" trans="0.000000,-1.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000" layer="0" editable="1" udefpros="" cnnts=""/>
+			<rect utype="rect" name="rect" id="{c9d8b9a3-8ccf-46f9-94ea-a3963df5598c}" fname="rect" x="0.782245" y="2.92192" z="220" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4294967295" brushimage="Qt::SolidPattern" rdx="0" rdy="0" x1="-3.08449" y1="1.87509" x2="1.05833" y2="5.57926" trans="-1.000000,0.000000,0.000000,0.000000,-1.000000,0.000000,12.043470,10.043495,1.000000" layer="0" editable="1" udefpros="" cnnts=""/>
+		</itemGroup>
+		<line utype="line" name="line" id="{354522aa-5fe9-4070-923d-b288cb8efe8f}" fname="line" x="7.09083" y="1.85208" z="221" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="0.000000,-1.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000" layer="0" editable="1" udefpros="" cnnts="">
+			<point x="1.92722e-07" y="-1.25964e-06"/>
+			<point x="1.92722e-07" y="2.91042"/>
+			<point x="1.92722e-07" y="2.91042"/>
+		</line>
+		<line utype="line" name="line.0" id="{86d53d06-81a0-4d54-9aae-b26ee12ed368}" fname="line" x="-1.5875" y="1.85208" z="222" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="0.000000,-1.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000" layer="0" editable="1" udefpros="" cnnts="">
+			<point x="1.92722e-07" y="1.5875"/>
+			<point x="1.92722e-07" y="4.23333"/>
+			<point x="1.92722e-07" y="4.23333"/>
+		</line>
+	</itemGroup>
+	<text utype="text" name="text" id="{48227689-cd5a-40c4-b8a2-84cf92a76657}" fname="text" x="1.5875" y="5.27926" z="223" label="N" font="Sans Serif,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="1.000000,0.000000,0.000000,0.000000,1.000000,0.000000,4.046875,-19.953125,1.000000" layer="0" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[N]]>
+		</label>
+	</text>
+</itemGroup>
+<itemGroup utype="Rs" name="RS" id="{cf3000df-fe73-46fb-ac58-4d49fecb0d01}" fname="RS" x="75.7237" y="36.1421" z="206" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::SolidPattern" chgchd="0" x1="0" y1="0" x2="15.3459" y2="10.8479" trans="" layer="0" editable="0" udefpros="[Name@算法名@@0@@@1@1@1][NewName@自定义算法名@@0@@@1@0@1][Type@优先类型@@1@0:RESET优先;1:SET优先@0@1@0@1][QualityPass@品质传递标志@@1@0:不传递;1:传最好;2:传最坏@0@1@0@1][AlgStOut@输出@@0@@OUTPUTA@1@0@1][ReverseOut@反相输出@@0@@@1@0@1][SET@置位输入@@0@@@1@0@1][RESET@复位输入@@0@@@1@0@1][OrderNo@算法执行顺序@@0@@1@0@0@1][Version@版本@@0@@@0@0@1][Shape@形状@@1@@@0@0@1]" cnnts="SET,0,3.43958;RESET,0,7.67292;AlgStOut,15.6104,3.43958;ReverseOut,15.6104,7.9375">
+	<rect utype="rect" name="rect" id="{9f92f78a-6214-42b2-8761-2f982f9d94e7}" fname="rect" x="3.70417" y="1.32292" z="207" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4294967295" brushimage="Qt::SolidPattern" rdx="0" rdy="0" x1="2.05636e-06" y1="1.20401e-06" x2="7.9375" y2="8.09625" trans="" layer="0" editable="1" udefpros="" cnnts=""/>
+	<text utype="text" name="text" id="{2c964fba-0149-4da3-be5c-a27223749a72}" fname="text" x="2.91042" y="0.052917" z="208" label="S" font="Sans Serif,7,-1,5,75,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[S]]>
+		</label>
+	</text>
+	<arrow utype="arrow" name="arrow" id="{95b59878-2aa7-48f6-b602-436021502af9}" fname="arrow" x="-0.529166" y="3.54542" z="209" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4294967295" brushimage="Qt::SolidPattern" arrowwd="4" arrowft="1" x1="0.529166" y1="3.39746e-07" x2="4.23333" y2="3.39746e-07" trans="" layer="0" editable="1" udefpros="" cnnts=""/>
+	<arrow utype="arrow" name="arrow.0" id="{de27ebba-96bb-46a7-a164-83c8ea04c8f3}" fname="arrow" x="-0.529166" y="7.77875" z="210" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4294967295" brushimage="Qt::SolidPattern" arrowwd="4" arrowft="1" x1="0.529166" y1="-2.02656e-07" x2="4.23333" y2="-2.02656e-07" trans="" layer="0" editable="1" udefpros="" cnnts=""/>
+	<arrow utype="arrow" name="arrow.1" id="{e9fb86d3-8bef-498f-910b-ac4a7044f135}" fname="arrow" x="11.6417" y="3.54542" z="211" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4294967295" brushimage="Qt::SolidPattern" arrowwd="4" arrowft="1" x1="5.00679e-07" y1="3.39746e-07" x2="3.70417" y2="3.39746e-07" trans="" layer="0" editable="1" udefpros="" cnnts=""/>
+	<text utype="text" name="text" id="{70df0562-cf8d-4010-9982-329c2b50404b}" fname="text" x="2.91042" y="5.29167" z="212" label="R" font="Sans Serif,7,-1,5,75,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[R]]>
+		</label>
+	</text>
+	<text utype="text" name="text.0" id="{46636303-0f8e-478e-92ab-a38e844e4769}" fname="text" x="8.99583" y="0" z="213" label="1" font="Sans Serif,7,-1,5,75,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[1]]>
+		</label>
+	</text>
+	<text utype="text" name="text.1" id="{3aa26a36-1a66-4447-971c-25a122438db7}" fname="text" x="8.99583" y="5.18583" z="214" label="0" font="Sans Serif,7,-1,5,75,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[0]]>
+		</label>
+	</text>
+	<arrow utype="arrow" name="arrow" id="{90a65528-e964-4226-b324-777170fdcb76}" fname="arrow" x="11.6417" y="7.9375" z="215" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4294967295" brushimage="Qt::SolidPattern" arrowwd="4" arrowft="1" x1="5.00679e-07" y1="0" x2="3.70417" y2="0" trans="" layer="0" editable="1" udefpros="" cnnts=""/>
+</itemGroup>
+<itemGroup utype="Doref" name="DOref" id="{09bf3f24-f35c-4a02-8303-dc674359ba95}" fname="DOref" x="106.327" y="35.3483" z="204" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::SolidPattern" chgchd="0" x1="0" y1="2.11667" x2="8.46663" y2="6.35" trans="" layer="0" editable="0" udefpros="[Name@算法名@@0@@@0@1@1][NewName@自定义算法名@@0@@@0@0@1][P1@点名@@0@@@1@0@1][Version@版本@@0@@@0@0@][Shape@形状@@1@@@0@0@]" cnnts="P1,2e-06,4.23333">
+	<rect utype="rect" name="rect" id="{af7125f4-b1e8-4cd6-9f01-a9e3196deabe}" fname="rect" x="0" y="0" z="205" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4290888129" brushimage="Qt::SolidPattern" rdx="10" rdy="10" x1="0" y1="2.11667" x2="8.46663" y2="6.35" trans="" layer="0" editable="1" udefpros="" cnnts=""/>
+</itemGroup>
+<connectLine utype="connectLine" name="connectLine.1" id="{32a9b499-644d-489f-93c1-abfa942ee0ce}" fname="connectLine" x="69.8147" y="39.317" z="40001" pencolor="4278190080" penstyle="1" penwidth="0" trans="" layer="0" editable="1" udefpros="[startPoint@起始点@@0@@DiRef,{922105c2-cd4e-4ebb-8161-cd314ae69fb2},P1@0@0@1][endPoint@结束点@@0@@Rs,{cf3000df-fe73-46fb-ac58-4d49fecb0d01},SET@0@0@1]" cnnts="">
+	<point x="-8.64303" y="0.264529"/>
+	<point x="5.909" y="0.264529"/>
+	<point x="5.909" y="0.264684"/>
+</connectLine>
+<connectLine utype="connectLine" name="connectLine.0" id="{81e6d9b0-60a6-4001-a3fb-ef935166d2fd}" fname="connectLine" x="61.1717" y="39.4051" z="40001" pencolor="4278190080" penstyle="1" penwidth="0" trans="" layer="0" editable="1" udefpros="[startPoint@起始点@@0@@DiRef,{922105c2-cd4e-4ebb-8161-cd314ae69fb2},P1@0@0@1][endPoint@结束点@@0@@Not,{17a370f5-c378-46af-ad9c-7372c8473da8},DIN1@0@0@1]" cnnts="">
+	<point x="6.05176e-06" y="0.176382"/>
+	<point x="6.05176e-06" y="4.445"/>
+	<point x="1.64042" y="4.445"/>
+</connectLine>
+

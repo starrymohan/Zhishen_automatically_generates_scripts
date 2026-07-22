@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='GB2312' ?>
+<wnd ft="cbp" ver="2.0" unit="1" width="419.999994" height="296.999992" bgcolor="4292138196" bgimage="Qt::SolidPattern" zbase="134.000000" printp="A4" printh="1" layers="0 层,0,1,0,0, ;1 层,1,1,0,0, ;2 层,2,1,0,0, ;3 层,3,1,0,0, ;4 层,4,1,0,0, ;背景,5,1,1,0, " udefpros="[DomainNo@域号@@0@@63@1@0@1][DropNo@站号@@0@@21@1@0@1][SheetNo@页号@@0@@170@1@0@1][Proc@处理周期@@1@1;2;3;4;5@1@1@0@1][Sequence@执行位置@@3@@保持原样@1@0@1][Security@设备区@@3@Misc;锅炉;汽轮机;电气@Misc@1@0@0][Type@逻辑图类型@@0@@SAMA@1@1@1][Version@版本@@0@@1@0@0@1]">
+	<itemGroup utype="itemGroup" name="itemGroup" id="{0386a0aa-47fe-4e36-8079-b719a9d90a8b}" fname="itemGroup" x="4.73562" y="3.66355" z="0" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::SolidPattern" chgchd="0" x1="0" y1="0" x2="409.31" y2="286.847" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<itemGroup utype="itemGroup" name="itemGroup" id="{b9179fb3-3687-463c-aae5-fe44373becfa}" fname="itemGroup" x="0" y="0" z="0" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::SolidPattern" chgchd="0" x1="0" y1="0" x2="409.31" y2="286.847" trans="" layer="1" editable="1" udefpros="" cnnts="">
+			<itemGroup utype="itemGroup" name="itemGroup" id="{215d9395-743a-49dd-9bc2-fda187a9f0a0}" fname="itemGroup" x="0" y="0" z="0" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::SolidPattern" chgchd="0" x1="0" y1="0" x2="409.31" y2="286.847" trans="" layer="0" editable="1" udefpros="" cnnts="">
+				<rect utype="rect" name="rect" id="{4d7f5e05-330d-4d8b-b0be-bc2c12fb4193}" fname="rect" x="-0.656321" y="-0.695884" z="0" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::NoBrush" rdx="0" rdy="0" x1="0.695884" y1="0.695884" x2="409.923" y2="287.345" trans="" layer="2" editable="1" udefpros="" cnnts=""/>
+				<rect utype="rect" name="rect" id="{fc2445c7-dce2-4ca4-ad41-5192cee39967}" fname="rect" x="4.06662" y="4.43633" z="5" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::NoBrush" rdx="0" rdy="0" x1="0.695884" y1="0.695884" x2="400.396" y2="277.47" trans="" layer="1" editable="1" udefpros="" cnnts=""/>
+				<line utype="line" name="line" id="{53908c26-c72b-41af-9ca0-959d11f5cac2}" fname="line" x="204.973" y="0.105133" z="10" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0.131545" y="0"/>
+					<point x="0.029222" y="4.98451"/>
+				</line>
+				<line utype="line" name="line" id="{43f5dab3-5673-4bac-82c0-acde9164625a}" fname="line" x="125.074" y="0.105133" z="11" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="0.029222" y="4.98451"/>
+				</line>
+				<line utype="line" name="line" id="{c4556b89-254f-46f0-ba73-dc92c163b200}" fname="line" x="85.1217" y="0.105133" z="12" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="-0.102323" y="4.85296"/>
+				</line>
+				<line utype="line" name="line" id="{83a7d657-5ea5-4ffe-a00e-3ccbb1571e05}" fname="line" x="45.1723" y="0.105133" z="13" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="0.029222" y="4.98451"/>
+				</line>
+				<line utype="line" name="line" id="{54daeeba-7d58-4de5-b2c1-b83c5402a66c}" fname="line" x="165.023" y="0.105133" z="23" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="0.029222" y="4.98451"/>
+				</line>
+				<line utype="line" name="line" id="{1fd5fb5c-9283-4023-8c6c-8b45b218c768}" fname="line" x="285.038" y="0.105133" z="24" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="0.021458" y="4.85296"/>
+				</line>
+				<line utype="line" name="line" id="{f52e01a5-8467-4212-8406-f4c8cfd16181}" fname="line" x="324.99" y="0.105133" z="25" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="0.029222" y="4.98451"/>
+				</line>
+				<line utype="line" name="line" id="{cbbea08c-69c6-409e-a5b3-d7885ed8f873}" fname="line" x="244.56" y="0.105133" z="26" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0.068518" y="0"/>
+					<point x="0.029222" y="4.85296"/>
+				</line>
+				<line utype="line" name="line" id="{6c263376-8510-4334-bed3-0af63bc2ebe9}" fname="line" x="364.94" y="0.105133" z="29" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0.131545" y="0"/>
+					<point x="0.029222" y="4.98451"/>
+				</line>
+				<line utype="line" name="line" id="{d89b0d0f-5530-4530-b24a-e63d5cd4e3d0}" fname="line" x="204.889" y="281.874" z="31" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="-0.009875" y="4.95162"/>
+				</line>
+				<line utype="line" name="line" id="{5a11a174-2c7f-481d-8161-235ab60e2651}" fname="line" x="124.989" y="281.874" z="32" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="0.029222" y="4.80034"/>
+				</line>
+				<line utype="line" name="line" id="{c9803bdc-a0ae-4024-bd58-7a3d77a311d2}" fname="line" x="85.0371" y="281.874" z="33" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="0.029222" y="4.80034"/>
+				</line>
+				<line utype="line" name="line" id="{c3df2b2c-3954-4b9c-900e-5645209cb4cc}" fname="line" x="45.0877" y="281.874" z="34" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="0.029222" y="4.95162"/>
+				</line>
+				<line utype="line" name="line" id="{64292e4d-b776-4dad-9cbe-96723c403c48}" fname="line" x="164.939" y="281.874" z="35" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="0.029222" y="4.80034"/>
+				</line>
+				<line utype="line" name="line" id="{e2eb5f07-e343-4a0f-bb10-4bdaed6c15ad}" fname="line" x="284.954" y="281.874" z="36" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="-0.151276" y="0"/>
+					<point x="-0.157116" y="4.92991"/>
+				</line>
+				<line utype="line" name="line" id="{d99eea9b-0c6e-4662-b898-a44db3c31803}" fname="line" x="324.906" y="281.874" z="37" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0" y="0"/>
+					<point x="0.029222" y="4.97367"/>
+				</line>
+				<line utype="line" name="line" id="{3703eb43-2377-4529-b643-cf0e7949daf6}" fname="line" x="244.475" y="281.874" z="38" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0.200063" y="0"/>
+					<point x="0.180498" y="4.80034"/>
+				</line>
+				<line utype="line" name="line" id="{3658ce3c-16f0-489f-9760-105b7ad1c8a2}" fname="line" x="364.855" y="282.403" z="39" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="0.086493" y="-0.526179"/>
+					<point x="0.029222" y="4.36822"/>
+				</line>
+				<line utype="line" name="line" id="{d8e97d5f-07a0-492e-b8b1-58e6a4479a28}" fname="line" x="-1.70377" y="60.3931" z="42" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="1.88987" y="0"/>
+					<point x="6.25053" y="0"/>
+				</line>
+				<line utype="line" name="line" id="{85cca292-75a0-43ac-95b1-e462d3262acc}" fname="line" x="-1.70377" y="115.71" z="43" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="1.88987" y="0"/>
+					<point x="6.15107" y="0"/>
+				</line>
+				<line utype="line" name="line" id="{64962c45-7bdd-492d-981e-386a6a62ba15}" fname="line" x="-1.79026" y="171.029" z="44" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="1.98933" y="0"/>
+					<point x="6.35" y="0"/>
+				</line>
+				<line utype="line" name="line" id="{53bb58c4-80ba-46db-85e9-a7682f848fbf}" fname="line" x="-1.79026" y="226.345" z="45" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="1.79026" y="0.035699"/>
+					<point x="6.35" y="0.035328"/>
+				</line>
+				<line utype="line" name="line" id="{9f00f7b7-0558-495b-bae9-c46799a4d346}" fname="line" x="403.047" y="60.3931" z="46" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="1.29307" y="0"/>
+					<point x="6.25053" y="0"/>
+				</line>
+				<line utype="line" name="line" id="{ab0e15ef-a5af-4c78-aefe-63fbca369a90}" fname="line" x="402.518" y="115.71" z="47" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="1.88987" y="0"/>
+					<point x="6.6484" y="0"/>
+				</line>
+				<line utype="line" name="line" id="{0de00d5e-54a1-432b-bbab-d3f771a4ac39}" fname="line" x="401.108" y="226.345" z="48" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="3.37776" y="0.035699"/>
+					<point x="8.20208" y="0.035328"/>
+				</line>
+				<line utype="line" name="line" id="{0a997513-9590-42ac-b914-a6ad458051bc}" fname="line" x="402.431" y="171.029" z="49" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<point x="1.98933" y="0"/>
+					<point x="6.84733" y="0"/>
+				</line>
+				<text utype="text" name="text" id="{6906aa91-a9fc-41a2-9c54-17eb6d774626}" fname="text" x="19.3146" y="-2.27612" z="50" label="1" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[1]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{cf412788-d63a-4ae5-971c-4e2610934a5a}" fname="text" x="61.1188" y="-2.01153" z="51" label="2" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[2]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{6e5af422-5e10-4051-89a0-409c678e3952}" fname="text" x="101.865" y="-2.27612" z="52" label="3" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[3]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{252db9ed-9b36-4394-9aac-049f6517fea8}" fname="text" x="141.023" y="-2.27612" z="53" label="4" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[4]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{d509d9fc-1745-4507-b94d-0fde50d25c01}" fname="text" x="182.563" y="-2.27612" z="54" label="5" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[5]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{982327f0-93f8-4463-813e-9fad6439eefd}" fname="text" x="221.985" y="-2.27612" z="55" label="6" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[6]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{2933232a-68a3-4a35-ab0e-7a7507168425}" fname="text" x="262.202" y="-2.01153" z="56" label="7" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[7]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{f2424e14-6424-4bbd-abb9-f55e963838c3}" fname="text" x="302.154" y="-2.27612" z="57" label="8" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[8]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{e6cf4fb6-1cfb-45b6-acbe-b0bd7340cde9}" fname="text" x="342.9" y="-2.27612" z="58" label="9" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[9]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{0227244a-a8f8-4621-b009-6c668178c0da}" fname="text" x="383.381" y="-2.27612" z="59" label="10" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[10]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{f1ecc5ff-e01e-4d89-a6dc-a2fa30c407d9}" fname="text" x="103.188" y="279.241" z="60" label="3" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[3]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{698371e1-0086-431b-8e5b-00253dafa012}" fname="text" x="183.621" y="279.241" z="61" label="5" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[5]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{dea6d2f6-b291-4702-9577-d222fd6a4404}" fname="text" x="342.9" y="279.505" z="62" label="9" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[9]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{a30f6b2f-f0c8-45df-b9e6-973d4cae344d}" fname="text" x="302.419" y="279.505" z="63" label="8" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[8]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{9979f170-7b1f-4fd0-9705-3f16f30ee5cb}" fname="text" x="262.467" y="279.505" z="64" label="7" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[7]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{1287bb46-8d9b-4103-8b48-f4091e30a468}" fname="text" x="383.646" y="279.505" z="65" label="10" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[10]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{0e4b68be-34fe-481e-81d2-4c7637a6ab20}" fname="text" x="21.6958" y="279.241" z="66" label="1" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[1]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{70319d62-fcf4-491f-8578-fb7123d697eb}" fname="text" x="63.5" y="279.241" z="67" label="2" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[2]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{8fc50f77-2872-41e8-93ab-91c549ebdfa8}" fname="text" x="222.515" y="279.241" z="68" label="6" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[6]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{844f69a0-2cb8-479f-926e-3833a9ed8722}" fname="text" x="143.14" y="279.241" z="69" label="4" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[4]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{a55cf131-2cf1-4a35-8e9a-04304cf3c524}" fname="text" x="0" y="25.2405" z="70" label="A" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[A]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{ac4bea82-8d17-4e80-8802-14ced1267f13}" fname="text" x="-0.264584" y="83.1843" z="71" label="B" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[B]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{f8a27a8b-9d48-4b52-916b-1b2a8dccd5a7}" fname="text" x="-0.517148" y="138.482" z="72" label="C" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[C]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{89700ea9-9e36-4e30-abe8-8034247fcaef}" fname="text" x="-0.529168" y="194.838" z="73" label="D" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[D]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{7f4be97f-d9b2-4803-b256-1e2c416a9bd8}" fname="text" x="0.264583" y="251.988" z="74" label="E" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[E]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{2c7ce0e5-bdb9-42c4-9f79-eb7261fbe8ac}" fname="text" x="404.654" y="195.103" z="75" label="D" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[D]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{6d8349f1-57d6-4c87-acfe-558a2e31aadd}" fname="text" x="404.402" y="138.747" z="76" label="C" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[C]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{a5002d6b-2dcb-4774-8223-2cac17f0120f}" fname="text" x="405.183" y="83.4489" z="77" label="B" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[B]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{466799e3-eb85-4416-9c24-8120ba3691c6}" fname="text" x="404.654" y="252.253" z="78" label="E" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[E]]>
+					</label>
+				</text>
+				<text utype="text" name="text" id="{c554e002-88e8-4b9c-9c19-ef7ce4bb120d}" fname="text" x="404.654" y="25.5051" z="79" label="A" font="Andalus,16,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="1" udefpros="" cnnts="">
+					<label>
+						<![CDATA[A]]>
+					</label>
+				</text>
+				<rect utype="rect" name="rect" id="{6296a536-ce98-45f6-9cc9-e8a11453306a}" fname="rect" x="404.513" y="256.555" z="85" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278190080" brushimage="Qt::NoBrush" rdx="0" rdy="0" x1="0" y1="-6.44203" x2="-179.733" y2="25.4" trans="" layer="0" editable="1" udefpros="" cnnts=""/>
+			</itemGroup>
+			<line utype="line" name="line" id="{462d8a75-6444-45f1-a70e-460382dcdbbf}" fname="line" x="225.655" y="260.191" z="86" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+				<point x="-0.690217" y="0"/>
+				<point x="178.858" y="0"/>
+			</line>
+			<line utype="line" name="line" id="{945b2a6a-ac4e-4057-8468-de271a029be1}" fname="line" x="225.692" y="267.817" z="87" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+				<point x="-0.690217" y="0"/>
+				<point x="178.858" y="0"/>
+			</line>
+			<line utype="line" name="line" id="{9659ca76-4f55-4422-bf8d-d90f808f1339}" fname="line" x="225.6" y="275.007" z="88" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+				<point x="-0.690217" y="0"/>
+				<point x="178.858" y="0"/>
+			</line>
+		</itemGroup>
+		<line utype="line" name="line" id="{abb38ea0-9e5a-45dc-90e3-ce9a63563dd3}" fname="line" x="241.856" y="281.293" z="89" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+			<point x="0" y="0.460145"/>
+			<point x="0" y="-21.1667"/>
+		</line>
+		<line utype="line" name="line" id="{ca2670e4-69be-4b92-aab1-f80bbed95275}" fname="line" x="260.538" y="281.293" z="90" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+			<point x="0" y="0.460145"/>
+			<point x="0" y="-21.1667"/>
+		</line>
+		<line utype="line" name="line" id="{baec694c-c81f-4aad-96ee-9f3a610fc594}" fname="line" x="278.647" y="281.293" z="91" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+			<point x="0" y="0.460145"/>
+			<point x="0" y="-21.1667"/>
+		</line>
+		<line utype="line" name="line" id="{4fc2704a-b316-4f5c-bd6d-b030cc179686}" fname="line" x="296.515" y="281.293" z="92" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+			<point x="0" y="0.460145"/>
+			<point x="0" y="-21.1667"/>
+		</line>
+		<line utype="line" name="line" id="{f55b6017-bb99-4c3a-95f6-5378f0032275}" fname="line" x="313.991" y="281.638" z="93" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+			<point x="0" y="-6.54206"/>
+			<point x="0" y="-21.1667"/>
+		</line>
+		<line utype="line" name="line" id="{0f042d84-4363-43e1-a4e6-34ffce920895}" fname="line" x="330.921" y="274.767" z="94" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+			<point x="0" y="0.460145"/>
+			<point x="0" y="-24.5136"/>
+		</line>
+		<line utype="line" name="line" id="{0435cc20-c05a-4ea5-9022-2df666e1cee0}" fname="line" x="347.385" y="281.438" z="95" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+			<point x="0" y="-6.54206"/>
+			<point x="0" y="-21.1667"/>
+		</line>
+		<line utype="line" name="line" id="{68f6a650-c2e3-4939-be64-5fba578bd471}" fname="line" x="375.471" y="281.557" z="96" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+			<point x="0" y="0.460145"/>
+			<point x="0" y="-21.1667"/>
+		</line>
+		<line utype="line" name="line" id="{8a065744-0ec7-44c8-b639-56982e63a3d2}" fname="line" x="390.287" y="281.293" z="97" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="" cnnts="">
+			<point x="0" y="0.460145"/>
+			<point x="0" y="-21.1667"/>
+		</line>
+	</itemGroup>
+	<text utype="text" name="text" id="{974d30d1-4147-4804-a74c-a92232cd98f8}" fname="text" x="233.474" y="264.683" z="98" label="设计" font="SimSun,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[设计]]>
+		</label>
+	</text>
+	<text utype="text" name="" id="{bcb71e08-e045-4612-bbe3-adbeeb66b0c9}" fname="text" x="233.608" y="272.166" z="99" label="绘图" font="SimSun,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[绘图]]>
+		</label>
+	</text>
+	<text utype="text" name="" id="{b5c0fb6d-30a3-4ecc-bf31-5f89968ebf07}" fname="text" x="230.775" y="279.258" z="100" label="项目经理" font="SimSun,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[项目经理]]>
+		</label>
+	</text>
+	<text utype="text" name="" id="{f2518c99-f96d-4599-9fec-b07b461eff31}" fname="text" x="287.965" y="264.841" z="101" label="审核" font="SimSun,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[审核]]>
+		</label>
+	</text>
+	<text utype="text" name="" id="{b44d69d7-44b4-4a4a-8350-af6fe73eb9ca}" fname="text" x="284.866" y="279.216" z="102" label="工程名称" font="SimSun,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[工程名称]]>
+		</label>
+	</text>
+	<text utype="text" name="" id="{113d2e81-1a22-4a06-8ad3-34c33d332b95}" fname="text" x="287.699" y="272.124" z="103" label="批准" font="SimSun,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[批准]]>
+		</label>
+	</text>
+	<text utype="text" name="" id="{380c7170-c3b3-41ad-8c24-cba99a854402}" fname="text" x="339.757" y="264.757" z="104" label="图号" font="SimSun,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[图号]]>
+		</label>
+	</text>
+	<text utype="text" name="" id="{7d355e2f-0394-4a50-b155-c240387057a3}" fname="text" x="338.215" y="272.166" z="105" label="项目号" font="SimSun,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[项目号]]>
+		</label>
+	</text>
+	<text utype="text" name="" id="{5edb9fb3-797d-47d8-98a0-16a558645617}" fname="text" x="379.69" y="264.699" z="106" label="域号:站号" font="SimSun,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[域号:站号]]>
+		</label>
+	</text>
+	<text utype="text" name="" id="{9b10c316-1637-4b4e-bf7d-79f034fd9c00}" fname="text" x="383.117" y="271.992" z="107" label="页号" font="SimSun,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[页号]]>
+		</label>
+	</text>
+	<text utype="text" name="" id="{980cf54a-f580-4756-996d-db82d0529044}" fname="text" x="383.317" y="279.2" z="108" label="版本" font="SimSun,9,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="5" editable="1" udefpros="" cnnts="">
+		<label>
+			<![CDATA[版本]]>
+		</label>
+	</text>
+</wnd>
+

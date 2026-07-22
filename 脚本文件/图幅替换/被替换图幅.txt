@@ -1,0 +1,17 @@
+	<itemGroup utype="itemGroup" name="itemGroup.49" id="{33139e72-cdf6-4270-b57c-606c23cb2ef5}" fname="itemGroup" x="870.372" y="1169.33" z="28175" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278215680" brushimage="Qt::SolidPattern" chgchd="1" x1="-278.172" y1="-665.327" x2="-298.372" y2="-642.727" trans="" layer="0" editable="1" udefpros="[label@名字@@0@@图符@1@0@1][type@类型@@1@O;I@O@0@0@1][*InIf@条件语句@@3@@@0@0@1]" cnnts="">
+		<polygon utype="polygon" name="polygon6146" id="{94ce2132-18a7-4410-b73b-6d507757c5a4}" fname="" x="13.5133" y="0" z="28176" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278215680" brushimage="Qt::SolidPattern" trans="" layer="0" editable="1" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+			<point x="-291.685" y="-655.237"/>
+			<point x="-291.685" y="-643.767"/>
+			<point x="-311.885" y="-655.237"/>
+			<point x="-311.885" y="-643.767"/>
+		</polygon>
+		<rect utype="" name="rect" id="{a5249625-6379-4f64-bb21-8db6c4797511}" fname="" x="6.5" y="9" z="28177" pencolor="4278190080" penstyle="1" penwidth="0" brushcolor="4278215680" brushimage="Qt::SolidPattern" rdx="0" rdy="0" x1="-289.66" y1="-674.327" x2="-300.402" y2="-667.503" trans="" layer="0" editable="0" udefpros="[label@名字@@0@@矩形@1@0@][if@条件语句@@3@@@1@0@]" cnnts=""/>
+		<line utype="" name="line" id="{23610b02-8f2a-42ae-a087-fd5c53c78bc1}" fname="" x="7.5" y="23" z="28178" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="[label@名字@@0@@线@1@0@][if@条件语句@@3@@@1@0@]" cnnts="">
+			<point x="-290.66" y="-684.916"/>
+			<point x="-301.402" y="-684.916"/>
+		</line>
+		<line utype="" name="line" id="{030261b3-eab4-423a-8171-074d6be2ee88}" fname="" x="29.2649" y="22" z="28179" pencolor="4278190080" penstyle="1" penwidth="0" iscurve="0" trans="" layer="0" editable="1" udefpros="[label@名字@@0@@线@1@0@][if@条件语句@@3@@@1@0@]" cnnts="">
+			<point x="-317.797" y="-683.344"/>
+			<point x="-317.797" y="-671.067"/>
+		</line>
+	</itemGroup>
