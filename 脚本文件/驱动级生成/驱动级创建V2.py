@@ -94,6 +94,7 @@ def determine_template(driver_level, row):
         return None
 
     elif dl == "7":
+        # 固定使用 BREAKERII_NOT_ERR.txt 模板
         return "BREAKERII_NOT_ERR.txt"
 
     elif dl == "9":
@@ -107,6 +108,7 @@ def determine_template(driver_level, row):
         return None
 
     elif dl == "11":
+        # 固定使用 MOVSPII_NOT_ERR.txt 模板
         return "MOVSPII_NOT_ERR.txt"
 
     else:
@@ -125,13 +127,12 @@ def read_csv_with_encoding(filepath):
     with open(filepath, 'rb') as f:
         raw = f.read()
 
-    # 优先 UTF-8（含 BOM），其次 GBK/GB18030，最后备用编码
     encodings = ['utf-8-sig', 'utf-8', 'gbk', 'gb2312', 'gb18030', 'latin-1']
     for enc in encodings:
         try:
             text = raw.decode(enc)
             df = pd.read_csv(StringIO(text), header=0, dtype=str)
-            if df.shape[1] > 1:   # 确保至少有两列
+            if df.shape[1] > 1:
                 return df
         except Exception:
             continue
@@ -221,6 +222,11 @@ def process_csv_file(csv_path):
                 value = row.get(csv_col, "")
                 if pd.isna(value):
                     value = ""
+                # 针对驱动级7或11，对测点列进行无效值替换为 "0"
+                if driver_level in ["7", "11"] and csv_col in POINT_COLS:
+                    # 如果值为空或#N/A等，替换为"0"
+                    if value == "" or value.upper() in ["#N/A", "#/A"]:
+                        value = "0"
             content = content.replace(placeholder, str(value))
 
         # 构造输出路径
@@ -228,7 +234,6 @@ def process_csv_file(csv_path):
         os.makedirs(dir_path, exist_ok=True)
 
         output_path = os.path.join(dir_path, filename)
-        # 强制使用 GB2312 编码和 LF 换行符 (Unix)
         with open(output_path, 'w', encoding='gb2312', newline='\n') as f:
             f.write(content)
 
