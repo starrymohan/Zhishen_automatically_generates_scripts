@@ -10,7 +10,7 @@ from io import StringIO
 # ---------- 配置 ----------
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_DIR = os.path.join(SCRIPT_DIR, "待替换文件")
-TEMPLATE_DIR = os.path.join(SCRIPT_DIR, "template")
+TEMPLATE_DIR = os.path.join(SCRIPT_DIR, "cb")
 
 # 测点列名（中文）
 POINT_COLS = ["启动", "停止", "已启", "已停", "故障", "远方"]
@@ -20,7 +20,7 @@ KEY_COLS = ["域名", "DPU", "SHEET", "设备名称", "驱动级"]
 # ---------- 映射关系（CSV列名 → 模板占位符） ----------
 MAPPING = {
     "DM": "DM",
-    "DPU": "DROPNUM",
+    "DPU": "DPUNUM",
     "启动": "INPUT1",
     "停止": "INPUT2",
     "已启": "OUTPUT1",
@@ -74,42 +74,42 @@ def determine_template(driver_level, row):
         # 新规则：只要求启动、停止、已启有效，已停忽略
         if has_start and has_stop and has_started:
             if not has_fault and not has_remote:
-                return "MOV.txt"
+                return "MOV.cbp"
             elif has_fault and not has_remote:
-                return "MOV_ERR.txt"
+                return "MOV_ERR.cbp"
             elif not has_fault and has_remote:
-                return "MOV_NOT.txt"
+                return "MOV_NOT.cbp"
             elif has_fault and has_remote:
-                return "MOV_NOT_ERR.txt"
+                return "MOV_NOT_ERR.cbp"
         return None
 
     elif dl == "6":
         # 根据基本测点组合选择模板，远方/故障不影响
         if has_start and has_stop and has_started and has_stopped:
-            return "MOTORII_NOT_ERR.txt"
+            return "MOTORII_NOT_ERR.cbp"
         elif has_start and has_stop and has_started:
-            return "MOTORII_NOT_ERR_1DI.txt"
+            return "MOTORII_NOT_ERR_1DI.cbp"
         elif has_start and has_started:
-            return "MOTORII _1DO_NOT_ERR_1DI.txt"
+            return "MOTORII _1DO_NOT_ERR_1DI.cbp"
         else:
             return None
 
     elif dl == "7":
-        return "BREAKERII_NOT_ERR.txt"
+        return "BREAKERII_NOT_ERR.cbp"
 
     elif dl == "9":
         # 仅基于 启动、已启、远方 判断
         if has_start and has_started and has_remote:
-            return "SCSOV_NOT.txt"
+            return "SCSOV_NOT.cbp"
         elif has_start and has_started and not has_remote:
-            return "SCSOV.txt"
+            return "SCSOV.cbp"
         elif has_start and not has_started and not has_remote:
-            return "SCSOV_1DO.txt"
+            return "SCSOV_1DO.cbp"
         else:
             return None
 
     elif dl == "11":
-        return "MOVSPII_NOT_ERR.txt"
+        return "MOVSPII_NOT_ERR.cbp"
 
     else:
         return None
