@@ -30,10 +30,13 @@ MAPPING = {
     "CUSTOM": "CUSTOM",      # 特殊生成
     "GPA": "GPA",            # 特殊生成
     "GPB": "GPB",            # 特殊生成
-    "故障": "ERR",           # 直接取值
+    "故障": "ERR",           # 直接取值，但补零后替换
     "远方": "NOSPOT",        # 直接取值
     "就地": "SPOT"           # 直接取值
 }
+
+# ---------- 全局收集缺失启动/停止的设备 ----------
+missing_start_stop_devices = []
 
 # ---------- 辅助函数 ----------
 def is_valid(value):
@@ -68,7 +71,8 @@ def determine_template(driver_level, row):
     has_remote = s["远方"]
 
     if dl == "5":
-        if has_start and has_stop and has_started and has_stopped:
+        # 新规则：只要求启动、停止、已启有效，已停忽略
+        if has_start and has_stop and has_started:
             if not has_fault and not has_remote:
                 return "MOV.txt"
             elif has_fault and not has_remote:
@@ -80,7 +84,7 @@ def determine_template(driver_level, row):
         return None
 
     elif dl == "6":
-        # 新规则：根据基本测点组合选择模板，远方/故障的存在与否不影响模板选择
+        # 根据基本测点组合选择模板，远方/故障不影响
         if has_start and has_stop and has_started and has_stopped:
             return "MOTORII_NOT_ERR.txt"
         elif has_start and has_stop and has_started:
@@ -94,14 +98,15 @@ def determine_template(driver_level, row):
         return "BREAKERII_NOT_ERR.txt"
 
     elif dl == "9":
-        if has_start and has_stop and has_started and has_stopped:
-            if not has_fault and not has_remote:
-                return "SCSOV.txt"
-            if has_remote and not has_fault:
-                return "SCSOV_NOT.txt"
-        if has_start and not has_stop and not has_started and not has_stopped and not has_remote:
+        # 仅基于 启动、已启、远方 判断
+        if has_start and has_started and has_remote:
+            return "SCSOV_NOT.txt"
+        elif has_start and has_started and not has_remote:
+            return "SCSOV.txt"
+        elif has_start and not has_started and not has_remote:
             return "SCSOV_1DO.txt"
-        return None
+        else:
+            return None
 
     elif dl == "11":
         return "MOVSPII_NOT_ERR.txt"
@@ -164,6 +169,8 @@ def generate_special_value(csv_col, row):
 
 def process_csv_file(csv_path):
     """处理单个 CSV 文件"""
+    global missing_start_stop_devices
+
     print(f"\n处理文件: {csv_path}")
     try:
         data_df = read_csv_with_encoding(csv_path)
@@ -190,6 +197,15 @@ def process_csv_file(csv_path):
         if not domain or not station or not sheet or not device_name:
             print(f"  第 {idx+2} 行缺少必要信息（域名/DPU/SHEET/设备名称），跳过")
             continue
+
+        # ----- 对驱动级5检查启动和停止是否缺失，并汇总 -----
+        if driver_level == "5":
+            start_val = row.get("启动", "")
+            stop_val = row.get("停止", "")
+            if not is_valid(start_val) or not is_valid(stop_val):
+                missing_start_stop_devices.append(
+                    f"域名:{domain}, DPU:{station}, SHEET:{sheet}, 设备名称:{device_name}"
+                )
 
         # 确定模板文件名
         template_file = determine_template(driver_level, row)
@@ -218,13 +234,21 @@ def process_csv_file(csv_path):
                 if pd.isna(value):
                     value = ""
 
-                # 驱动级6：仅对“远方”和“故障”补零
+                # ----- 补零逻辑 -----
+                # 驱动级5：对已停补0
+                if driver_level == "5" and csv_col == "已停":
+                    if value == "" or value.upper() in ["#N/A", "#/A"]:
+                        value = "0"
+                # 驱动级6：对远方和故障补0
                 if driver_level == "6" and csv_col in ["远方", "故障"]:
                     if value == "" or value.upper() in ["#N/A", "#/A"]:
                         value = "0"
-
-                # 驱动级7和11：对所有测点（启动、停止、已启、已停、故障、远方）补零
+                # 驱动级7和11：对所有测点补0
                 if driver_level in ["7", "11"] and csv_col in POINT_COLS:
+                    if value == "" or value.upper() in ["#N/A", "#/A"]:
+                        value = "0"
+                # 驱动级9：对所有测点补0
+                if driver_level == "9" and csv_col in POINT_COLS:
                     if value == "" or value.upper() in ["#N/A", "#/A"]:
                         value = "0"
 
@@ -242,6 +266,8 @@ def process_csv_file(csv_path):
 
 # ---------- 主流程 ----------
 def main():
+    global missing_start_stop_devices
+
     if not os.path.isdir(INPUT_DIR):
         print(f"输入目录不存在: {INPUT_DIR}")
         sys.exit(1)
@@ -254,6 +280,16 @@ def main():
     print(f"找到 {len(csv_files)} 个 CSV 文件")
     for csv_file in csv_files:
         process_csv_file(csv_file)
+
+    # 打印缺失启动或停止的设备汇总
+    if missing_start_stop_devices:
+        print("\n【驱动级5中启动或停止缺失的设备列表】")
+        for info in missing_start_stop_devices:
+            print(info)
+    '''
+    else:
+        print("\n所有驱动级5记录的启动和停止均有效。")
+    '''
 
     print("\n全部处理完成")
 
