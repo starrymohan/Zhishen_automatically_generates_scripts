@@ -113,10 +113,22 @@ def determine_template(driver_level, row):
 
     else:
         return None
-
+'''
 def build_output_path(domain, station, sheet, device_name):
     """构建输出目录和文件名"""
     dir_path = os.path.join(str(domain), str(station))
+    filename = f"SH{sheet}_{device_name}.cbp"
+    return dir_path, filename
+'''
+
+def build_output_path(domain, station, sheet, device_name):
+    """
+    构建输出目录和文件名
+    目录格式：./{域名}/drop{站名补齐3位}/
+    文件名：SH{页号}_{设备名称}.cbp
+    """
+    station_padded = str(station).zfill(3)   # 站名不足3位前补0
+    dir_path = os.path.join(str(domain), f"drop{station_padded}")
     filename = f"SH{sheet}_{device_name}.cbp"
     return dir_path, filename
 
