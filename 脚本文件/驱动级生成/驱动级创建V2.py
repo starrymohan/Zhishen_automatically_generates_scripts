@@ -80,21 +80,17 @@ def determine_template(driver_level, row):
         return None
 
     elif dl == "6":
-        # 规则1：只有“启动”和“已启”存在，且无故障、无远方
-        if (has_start and has_started and not has_stop and not has_stopped
-                and not has_fault and not has_remote):
+        # 新规则：根据基本测点组合选择模板，远方/故障的存在与否不影响模板选择
+        if has_start and has_stop and has_started and has_stopped:
+            return "MOTORII_NOT_ERR.txt"
+        elif has_start and has_stop and has_started:
+            return "MOTORII_NOT_ERR_1DI.txt"
+        elif has_start and has_started:
             return "MOTORII _1DO_NOT_ERR_1DI.txt"
-        # 规则2：有启动、停止、已启、已停，且有故障和远方
-        if (has_start and has_stop and has_started and has_stopped
-                and has_fault and has_remote):
-            return "MOTORII_NOT_ERR_1DI.txt"
-        # 规则3：有启动、停止、已启（无论有无已停），且有故障和远方（宽松）
-        if (has_start and has_stop and has_started and has_fault and has_remote):
-            return "MOTORII_NOT_ERR_1DI.txt"
-        return None
+        else:
+            return None
 
     elif dl == "7":
-        # 固定使用 BREAKERII_NOT_ERR.txt 模板
         return "BREAKERII_NOT_ERR.txt"
 
     elif dl == "9":
@@ -108,7 +104,6 @@ def determine_template(driver_level, row):
         return None
 
     elif dl == "11":
-        # 固定使用 MOVSPII_NOT_ERR.txt 模板
         return "MOVSPII_NOT_ERR.txt"
 
     else:
@@ -222,11 +217,17 @@ def process_csv_file(csv_path):
                 value = row.get(csv_col, "")
                 if pd.isna(value):
                     value = ""
-                # 针对驱动级7或11，对测点列进行无效值替换为 "0"
-                if driver_level in ["7", "11"] and csv_col in POINT_COLS:
-                    # 如果值为空或#N/A等，替换为"0"
+
+                # 驱动级6：仅对“远方”和“故障”补零
+                if driver_level == "6" and csv_col in ["远方", "故障"]:
                     if value == "" or value.upper() in ["#N/A", "#/A"]:
                         value = "0"
+
+                # 驱动级7和11：对所有测点（启动、停止、已启、已停、故障、远方）补零
+                if driver_level in ["7", "11"] and csv_col in POINT_COLS:
+                    if value == "" or value.upper() in ["#N/A", "#/A"]:
+                        value = "0"
+
             content = content.replace(placeholder, str(value))
 
         # 构造输出路径
@@ -241,12 +242,10 @@ def process_csv_file(csv_path):
 
 # ---------- 主流程 ----------
 def main():
-    # 检查输入目录是否存在
     if not os.path.isdir(INPUT_DIR):
         print(f"输入目录不存在: {INPUT_DIR}")
         sys.exit(1)
 
-    # 查找所有 CSV 文件
     csv_files = glob.glob(os.path.join(INPUT_DIR, "*.csv"))
     if not csv_files:
         print(f"在 {INPUT_DIR} 中未找到任何 .csv 文件")
