@@ -6,18 +6,15 @@ import sys
 import glob
 import pandas as pd
 from io import StringIO
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
+                             QHBoxLayout, QPushButton, QTextEdit, QFileDialog,
+                             QLabel, QMessageBox, QProgressBar)
+from PyQt5.QtCore import QThread, pyqtSignal, Qt
 
-# ---------- 配置 ----------
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_DIR = os.path.join(SCRIPT_DIR, "待替换文件")
-TEMPLATE_DIR = os.path.join(SCRIPT_DIR, "cb")
-
-# 测点列名（中文）
+# ---------- 原脚本的核心处理部分（基本未改动） ----------
 POINT_COLS = ["启动", "停止", "已启", "已停", "故障", "远方"]
-# 关键信息列名（CSV中实际列名）
 KEY_COLS = ["域名", "DPU", "SHEET", "设备名称", "驱动级"]
 
-# ---------- 映射关系（CSV列名 → 模板占位符） ----------
 MAPPING = {
     "DM": "DM",
     "DPU": "DPUNUM",
@@ -27,20 +24,17 @@ MAPPING = {
     "已停": "OUTPUT2",
     "SHEET": "SHEETNUM",
     "设备名称": "equipment",
-    "CUSTOM": "CUSTOM",      # 特殊生成
-    "GPA": "GPA",            # 特殊生成
-    "GPB": "GPB",            # 特殊生成
-    "故障": "ERR",           # 直接取值，但补零后替换
-    "远方": "NOSPOT",        # 直接取值
-    "就地": "SPOT"           # 直接取值
+    "CUSTOM": "CUSTOM",
+    "GPA": "GPA",
+    "GPB": "GPB",
+    "故障": "ERR",
+    "远方": "NOSPOT",
+    "就地": "SPOT"
 }
 
-# ---------- 全局收集缺失启动/停止的设备 ----------
 missing_start_stop_devices = []
 
-# ---------- 辅助函数 ----------
 def is_valid(value):
-    """判断测点值是否有效（非空且不等于 '#N/A' 或 '#/A'）"""
     if pd.isna(value):
         return False
     if isinstance(value, str):
@@ -50,17 +44,12 @@ def is_valid(value):
     return True
 
 def get_point_status(row):
-    """从行数据中提取各个测点的有效性"""
     status = {}
     for col in POINT_COLS:
         status[col] = is_valid(row.get(col))
     return status
 
 def determine_template(driver_level, row):
-    """
-    根据驱动级和测点存在情况选择模板文件名
-    返回模板文件名（字符串），若无法确定则返回 None
-    """
     dl = str(driver_level).strip()
     s = get_point_status(row)
     has_start  = s["启动"]
@@ -71,7 +60,6 @@ def determine_template(driver_level, row):
     has_remote = s["远方"]
 
     if dl == "5":
-        # 新规则：只要求启动、停止、已启有效，已停忽略
         if has_start and has_stop and has_started:
             if not has_fault and not has_remote:
                 return "MOV.cbp"
@@ -84,7 +72,6 @@ def determine_template(driver_level, row):
         return None
 
     elif dl == "6":
-        # 根据基本测点组合选择模板，远方/故障不影响
         if has_start and has_stop and has_started and has_stopped:
             return "MOTORII_NOT_ERR.cbp"
         elif has_start and has_stop and has_started:
@@ -98,7 +85,6 @@ def determine_template(driver_level, row):
         return "BREAKERII_NOT_ERR.cbp"
 
     elif dl == "9":
-        # 仅基于 启动、已启、远方 判断
         if has_start and has_started and has_remote:
             return "SCSOV_NOT.cbp"
         elif has_start and has_started and not has_remote:
@@ -110,35 +96,18 @@ def determine_template(driver_level, row):
 
     elif dl == "11":
         return "MOVSPII_NOT_ERR.cbp"
-
     else:
         return None
-'''
-def build_output_path(domain, station, sheet, device_name):
-    """构建输出目录和文件名"""
-    dir_path = os.path.join(str(domain), str(station))
-    filename = f"SH{sheet}_{device_name}.cbp"
-    return dir_path, filename
-'''
 
 def build_output_path(domain, station, sheet, device_name):
-    """
-    构建输出目录和文件名
-    目录格式：./{域名}/drop{站名补齐3位}/
-    文件名：SH{页号}_{设备名称}.cbp
-    """
-    station_padded = str(station).zfill(3)   # 站名不足3位前补0
+    station_padded = str(station).zfill(3)
     dir_path = os.path.join(str(domain), f"drop{station_padded}")
     filename = f"SH{sheet}_{device_name}.cbp"
     return dir_path, filename
 
 def read_csv_with_encoding(filepath):
-    """
-    增强的 CSV 读取：先以二进制读取，尝试多种编码解码，再用 pandas 解析
-    """
     with open(filepath, 'rb') as f:
         raw = f.read()
-
     encodings = ['utf-8-sig', 'utf-8', 'gbk', 'gb2312', 'gb18030', 'latin-1']
     for enc in encodings:
         try:
@@ -151,7 +120,6 @@ def read_csv_with_encoding(filepath):
     raise ValueError(f"无法使用常见编码读取 {filepath}，请检查文件编码")
 
 def read_template_with_encoding(filepath):
-    """尝试多种编码读取模板文件"""
     with open(filepath, 'rb') as f:
         raw = f.read()
     encodings = ['utf-8-sig', 'utf-8', 'gbk', 'gb18030', 'gb2312']
@@ -163,9 +131,6 @@ def read_template_with_encoding(filepath):
     raise ValueError(f"无法使用常见编码读取模板 {filepath}")
 
 def generate_special_value(csv_col, row):
-    """
-    根据规则生成 CUSTOM、GPA、GPB 的值
-    """
     dpu = str(row.get("DPU", "")).strip()
     sheet = str(row.get("SHEET", "")).strip()
     if not dpu or not sheet:
@@ -179,38 +144,38 @@ def generate_special_value(csv_col, row):
     else:
         return ""
 
-def process_csv_file(csv_path):
-    """处理单个 CSV 文件"""
+def process_single_csv(csv_path, log_callback=None):
+    """处理单个CSV文件，log_callback用于输出日志"""
     global missing_start_stop_devices
+    if log_callback:
+        log_callback(f"\n处理文件: {csv_path}")
 
-    print(f"\n处理文件: {csv_path}")
     try:
         data_df = read_csv_with_encoding(csv_path)
     except Exception as e:
-        print(f"  读取失败: {e}")
+        if log_callback:
+            log_callback(f"  读取失败: {e}")
         return
 
-    # 检查必要的关键列是否存在
     for col in KEY_COLS:
         if col not in data_df.columns:
-            print(f"  数据文件缺少必要列: {col}，跳过此文件")
+            if log_callback:
+                log_callback(f"  数据文件缺少必要列: {col}，跳过此文件")
             return
 
-    # 逐行处理
     for idx, row in data_df.iterrows():
-        # 获取关键字段
         domain = row.get("域名", "").strip()
         station = row.get("DPU", "").strip()
         sheet = row.get("SHEET", "").strip()
         device_name = row.get("设备名称", "").strip()
         driver_level = row.get("驱动级", "").strip()
 
-        # 校验关键信息
         if not domain or not station or not sheet or not device_name:
-            print(f"  第 {idx+2} 行缺少必要信息（域名/DPU/SHEET/设备名称），跳过")
+            if log_callback:
+                log_callback(f"  第 {idx+2} 行缺少必要信息（域名/DPU/SHEET/设备名称），跳过")
             continue
 
-        # ----- 对驱动级5检查启动和停止是否缺失，并汇总 -----
+        # 汇总驱动级5缺失启动/停止
         if driver_level == "5":
             start_val = row.get("启动", "")
             stop_val = row.get("停止", "")
@@ -219,25 +184,25 @@ def process_csv_file(csv_path):
                     f"域名:{domain}, DPU:{station}, SHEET:{sheet}, 设备名称:{device_name}"
                 )
 
-        # 确定模板文件名
         template_file = determine_template(driver_level, row)
         if template_file is None:
-            print(f"  第 {idx+2} 行驱动级 {driver_level} 无法匹配模板，跳过")
+            if log_callback:
+                log_callback(f"  第 {idx+2} 行驱动级 {driver_level} 无法匹配模板，跳过")
             continue
 
-        # 读取模板内容
         template_path = os.path.join(TEMPLATE_DIR, template_file)
         if not os.path.isfile(template_path):
-            print(f"  模板文件不存在: {template_path}")
+            if log_callback:
+                log_callback(f"  模板文件不存在: {template_path}")
             continue
 
         try:
             content = read_template_with_encoding(template_path)
         except Exception as e:
-            print(f"  读取模板文件失败 {template_path}: {e}")
+            if log_callback:
+                log_callback(f"  读取模板文件失败 {template_path}: {e}")
             continue
 
-        # 替换占位符
         for csv_col, placeholder in MAPPING.items():
             if csv_col in ("CUSTOM", "GPA", "GPB"):
                 value = generate_special_value(csv_col, row)
@@ -246,64 +211,200 @@ def process_csv_file(csv_path):
                 if pd.isna(value):
                     value = ""
 
-                # ----- 补零逻辑 -----
-                # 驱动级5：对已停补0
                 if driver_level == "5" and csv_col == "已停":
                     if value == "" or value.upper() in ["#N/A", "#/A"]:
                         value = "0"
-                # 驱动级6：对远方和故障补0
                 if driver_level == "6" and csv_col in ["远方", "故障"]:
                     if value == "" or value.upper() in ["#N/A", "#/A"]:
                         value = "0"
-                # 驱动级7和11：对所有测点补0
                 if driver_level in ["7", "11"] and csv_col in POINT_COLS:
                     if value == "" or value.upper() in ["#N/A", "#/A"]:
                         value = "0"
-                # 驱动级9：对所有测点补0
                 if driver_level == "9" and csv_col in POINT_COLS:
                     if value == "" or value.upper() in ["#N/A", "#/A"]:
                         value = "0"
 
             content = content.replace(placeholder, str(value))
 
-        # 构造输出路径
         dir_path, filename = build_output_path(domain, station, sheet, device_name)
         os.makedirs(dir_path, exist_ok=True)
-
         output_path = os.path.join(dir_path, filename)
         with open(output_path, 'w', encoding='gb2312', newline='\n') as f:
             f.write(content)
 
-        print(f"  已生成: {output_path}")
+        if log_callback:
+            log_callback(f"  已生成: {output_path}")
 
-# ---------- 主流程 ----------
+# ---------- PyQt5 GUI 部分 ----------
+'''
+class WorkerThread(QThread):
+    log_signal = pyqtSignal(str)
+    finished_signal = pyqtSignal()
+
+    def __init__(self, input_dir):
+        super().__init__()
+        self.input_dir = input_dir
+
+    def log(self, msg):
+        self.log_signal.emit(msg)
+
+    def run(self):
+        global missing_start_stop_devices
+        missing_start_stop_devices = []   # 重置
+        TEMPLATE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cb")
+
+        csv_files = glob.glob(os.path.join(self.input_dir, "*.csv"))
+        if not csv_files:
+            self.log(f"在 {self.input_dir} 中未找到任何 .csv 文件")
+            self.finished_signal.emit()
+            return
+
+        self.log(f"找到 {len(csv_files)} 个 CSV 文件")
+        for csv_file in csv_files:
+            process_single_csv(csv_file, log_callback=self.log)
+
+        if missing_start_stop_devices:
+            self.log("\n【驱动级5中启动或停止缺失的设备列表】")
+            for info in missing_start_stop_devices:
+                self.log(info)
+
+        self.log("\n全部处理完成")
+        self.finished_signal.emit()
+'''
+
+
+class WorkerThread(QThread):
+    log_signal = pyqtSignal(str)
+    finished_signal = pyqtSignal()
+
+    def __init__(self, input_dir):
+        super().__init__()
+        self.input_dir = input_dir
+
+    def log(self, msg):
+        self.log_signal.emit(msg)
+
+    def run(self):
+        try:
+            global missing_start_stop_devices
+            missing_start_stop_devices = []
+
+            # 获取模板目录（与exe同目录下的cb文件夹）
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            template_dir = os.path.join(base_dir, "cb")
+            if not os.path.isdir(template_dir):
+                self.log(f"错误：模板目录 'cb' 不存在于 {base_dir}")
+                self.finished_signal.emit()
+                return
+
+            # 将 template_dir 设为全局，供 process_single_csv 使用
+            global TEMPLATE_DIR
+            TEMPLATE_DIR = template_dir
+
+            csv_files = glob.glob(os.path.join(self.input_dir, "*.csv"))
+            if not csv_files:
+                self.log(f"在 {self.input_dir} 中未找到任何 .csv 文件")
+                self.finished_signal.emit()
+                return
+
+            self.log(f"找到 {len(csv_files)} 个 CSV 文件")
+            for csv_file in csv_files:
+                process_single_csv(csv_file, log_callback=self.log)
+
+            if missing_start_stop_devices:
+                self.log("\n【驱动级5中启动或停止缺失的设备列表】")
+                for info in missing_start_stop_devices:
+                    self.log(info)
+
+            self.log("\n全部处理完成")
+        except Exception as e:
+            import traceback
+            self.log(f"\n*** 发生异常: {e}")
+            self.log(traceback.format_exc())
+        finally:
+            self.finished_signal.emit()
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("CBP 文件生成工具")
+        self.setGeometry(100, 100, 800, 600)
+
+        central_widget = QWidget()
+        self.setCentralWidget(central_widget)
+
+        layout = QVBoxLayout(central_widget)
+
+        # 选择目录行
+        dir_layout = QHBoxLayout()
+        self.dir_label = QLabel("输入目录:")
+        self.dir_path_label = QLabel("未选择")
+        self.dir_path_label.setStyleSheet("border: 1px solid gray; padding: 3px;")
+        self.choose_dir_btn = QPushButton("选择目录")
+        self.choose_dir_btn.clicked.connect(self.choose_input_dir)
+        dir_layout.addWidget(self.dir_label)
+        dir_layout.addWidget(self.dir_path_label, 1)
+        dir_layout.addWidget(self.choose_dir_btn)
+        layout.addLayout(dir_layout)
+
+        # 日志文本框
+        self.log_text = QTextEdit()
+        self.log_text.setReadOnly(True)
+        layout.addWidget(QLabel("处理日志:"))
+        layout.addWidget(self.log_text)
+
+        # 底部按钮
+        btn_layout = QHBoxLayout()
+        self.process_btn = QPushButton("开始处理")
+        self.process_btn.clicked.connect(self.start_process)
+        self.process_btn.setEnabled(False)
+        self.clear_btn = QPushButton("清空日志")
+        self.clear_btn.clicked.connect(self.log_text.clear)
+        btn_layout.addStretch()
+        btn_layout.addWidget(self.process_btn)
+        btn_layout.addWidget(self.clear_btn)
+        layout.addLayout(btn_layout)
+
+        self.input_dir = None
+        self.worker = None
+
+    def choose_input_dir(self):
+        dir_path = QFileDialog.getExistingDirectory(self, "选择包含CSV文件的目录")
+        if dir_path:
+            self.input_dir = dir_path
+            self.dir_path_label.setText(dir_path)
+            self.process_btn.setEnabled(True)
+
+    def start_process(self):
+        if not self.input_dir:
+            QMessageBox.warning(self, "提示", "请先选择输入目录")
+            return
+
+        # 检查模板目录是否存在
+        template_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cb")
+        if not os.path.isdir(template_dir):
+            QMessageBox.warning(self, "错误", f"模板目录 'cb' 不存在于程序所在目录！")
+            return
+
+        self.process_btn.setEnabled(False)
+        self.log_text.append("开始处理...")
+        self.worker = WorkerThread(self.input_dir)
+        self.worker.log_signal.connect(self.append_log)
+        self.worker.finished_signal.connect(self.on_finished)
+        self.worker.start()
+
+    def append_log(self, msg):
+        self.log_text.append(msg)
+
+    def on_finished(self):
+        self.process_btn.setEnabled(True)
+        self.log_text.append("\n处理结束。")
+
 def main():
-    global missing_start_stop_devices
-
-    if not os.path.isdir(INPUT_DIR):
-        print(f"输入目录不存在: {INPUT_DIR}")
-        sys.exit(1)
-
-    csv_files = glob.glob(os.path.join(INPUT_DIR, "*.csv"))
-    if not csv_files:
-        print(f"在 {INPUT_DIR} 中未找到任何 .csv 文件")
-        sys.exit(1)
-
-    print(f"找到 {len(csv_files)} 个 CSV 文件")
-    for csv_file in csv_files:
-        process_csv_file(csv_file)
-
-    # 打印缺失启动或停止的设备汇总
-    if missing_start_stop_devices:
-        print("\n【驱动级5中启动或停止缺失的设备列表】")
-        for info in missing_start_stop_devices:
-            print(info)
-    '''
-    else:
-        print("\n所有驱动级5记录的启动和停止均有效。")
-    '''
-
-    print("\n全部处理完成")
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec_())
 
 if __name__ == "__main__":
     main()
