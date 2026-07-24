@@ -8,21 +8,23 @@ import pandas as pd
 from io import StringIO
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
                              QHBoxLayout, QPushButton, QTextEdit, QFileDialog,
-                             QLabel, QMessageBox, QProgressBar)
-from PyQt5.QtCore import QThread, pyqtSignal, Qt
+                             QLabel, QMessageBox)
+from PyQt5.QtCore import QThread, pyqtSignal
 
+# ---------- 辅助函数：获取模板目录 ----------
 def get_template_dir():
+    """返回模板目录路径，支持开发环境和打包环境"""
     if getattr(sys, 'frozen', False):
+        # 打包后，模板文件被解压到 sys._MEIPASS
         return os.path.join(sys._MEIPASS, "cb")
     else:
+        # 开发环境，模板文件夹位于脚本同级
         return os.path.join(os.path.dirname(os.path.abspath(__file__)), "cb")
 
-# 全局变量，稍后在 WorkerThread 中赋值
-TEMPLATE_DIR = ""
+# ---------- 全局变量 ----------
+TEMPLATE_DIR = ""   # 将在 WorkerThread 中赋值
 
-# ... 其他函数（process_single_csv等）保持不变，但使用全局 TEMPLATE_DIR
-
-# ---------- 原脚本的核心处理部分（基本未改动） ----------
+# ---------- 业务逻辑（与原驱动级创建V2_gui_ok.py一致） ----------
 POINT_COLS = ["启动", "停止", "已启", "已停", "故障", "远方"]
 KEY_COLS = ["域名", "DPU", "SHEET", "设备名称", "驱动级"]
 
@@ -247,43 +249,6 @@ def process_single_csv(csv_path, log_callback=None):
             log_callback(f"  已生成: {output_path}")
 
 # ---------- PyQt5 GUI 部分 ----------
-'''
-class WorkerThread(QThread):
-    log_signal = pyqtSignal(str)
-    finished_signal = pyqtSignal()
-
-    def __init__(self, input_dir):
-        super().__init__()
-        self.input_dir = input_dir
-
-    def log(self, msg):
-        self.log_signal.emit(msg)
-
-    def run(self):
-        global missing_start_stop_devices
-        missing_start_stop_devices = []   # 重置
-        TEMPLATE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cb")
-
-        csv_files = glob.glob(os.path.join(self.input_dir, "*.csv"))
-        if not csv_files:
-            self.log(f"在 {self.input_dir} 中未找到任何 .csv 文件")
-            self.finished_signal.emit()
-            return
-
-        self.log(f"找到 {len(csv_files)} 个 CSV 文件")
-        for csv_file in csv_files:
-            process_single_csv(csv_file, log_callback=self.log)
-
-        if missing_start_stop_devices:
-            self.log("\n【驱动级5中启动或停止缺失的设备列表】")
-            for info in missing_start_stop_devices:
-                self.log(info)
-
-        self.log("\n全部处理完成")
-        self.finished_signal.emit()
-'''
-
-
 class WorkerThread(QThread):
     log_signal = pyqtSignal(str)
     finished_signal = pyqtSignal()
@@ -297,55 +262,17 @@ class WorkerThread(QThread):
 
     def run(self):
         try:
-            global TEMPLATE_DIR
+            global TEMPLATE_DIR, missing_start_stop_devices
+            missing_start_stop_devices = []  # 重置
+
+            # 获取模板目录（支持打包环境）
             TEMPLATE_DIR = get_template_dir()
             if not os.path.isdir(TEMPLATE_DIR):
-                self.log(f"模板目录不存在: {TEMPLATE_DIR}")
-                self.finished_signal.emit()
-                return
-            # ... 后续处理，调用 process_single_csv 时自动使用 TEMPLATE_DIR
-            '''
-            # 获取程序所在目录（exe所在目录或脚本目录）
-            if getattr(sys, 'frozen', False):
-                base_dir = os.path.dirname(sys.executable)
-            else:
-                base_dir = os.path.dirname(os.path.abspath(__file__))
-
-            template_dir = os.path.join(base_dir, "cb")
-            if not os.path.isdir(template_dir):
-                self.log(f"错误：模板目录 'cb' 不存在于 {base_dir}")
-                self.finished_signal.emit()
-                return
-            global TEMPLATE_DIR
-            TEMPLATE_DIR = template_dir  # 供 process_single_csv 使用
-            '''
-
-            # 用户选择的输入目录已在 self.input_dir 中
-            csv_files = glob.glob(os.path.join(self.input_dir, "*.csv"))
-            # ... 后续处理
-        except Exception as e:
-            import traceback
-            self.log(f"异常: {e}\n{traceback.format_exc()}")
-        finally:
-            self.finished_signal.emit()
-'''
-    def run(self):
-        try:
-            global missing_start_stop_devices
-            missing_start_stop_devices = []
-
-            # 获取模板目录（与exe同目录下的cb文件夹）
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            template_dir = os.path.join(base_dir, "cb")
-            if not os.path.isdir(template_dir):
-                self.log(f"错误：模板目录 'cb' 不存在于 {base_dir}")
+                self.log(f"错误：模板目录 'cb' 不存在于 {TEMPLATE_DIR}")
                 self.finished_signal.emit()
                 return
 
-            # 将 template_dir 设为全局，供 process_single_csv 使用
-            global TEMPLATE_DIR
-            TEMPLATE_DIR = template_dir
-
+            # 扫描CSV文件
             csv_files = glob.glob(os.path.join(self.input_dir, "*.csv"))
             if not csv_files:
                 self.log(f"在 {self.input_dir} 中未找到任何 .csv 文件")
@@ -368,7 +295,7 @@ class WorkerThread(QThread):
             self.log(traceback.format_exc())
         finally:
             self.finished_signal.emit()
-'''
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -423,12 +350,6 @@ class MainWindow(QMainWindow):
     def start_process(self):
         if not self.input_dir:
             QMessageBox.warning(self, "提示", "请先选择输入目录")
-            return
-
-        # 检查模板目录是否存在
-        template_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cb")
-        if not os.path.isdir(template_dir):
-            QMessageBox.warning(self, "错误", f"模板目录 'cb' 不存在于程序所在目录！")
             return
 
         self.process_btn.setEnabled(False)
