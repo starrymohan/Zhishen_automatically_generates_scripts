@@ -36,7 +36,7 @@ KEY_COLS = ["域名", "DPU", "SHEET", "设备名称", "驱动级"]
 
 MAPPING = {
     "DM": "DM",
-    "DPU": "DPUNUM",
+    "DPU": "DROPNUM",
     "启动": "INPUT1",
     "停止": "INPUT2",
     "已启": "OUTPUT1",
