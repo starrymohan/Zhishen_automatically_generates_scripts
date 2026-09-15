@@ -19,8 +19,16 @@ def get_template_dir():
     else:
         return os.path.join(os.path.dirname(os.path.abspath(__file__)), "cb")
 
+def get_default_output_dir():
+    """默认输出目录：开发环境为脚本目录，打包后为exe所在目录"""
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    else:
+        return os.path.dirname(os.path.abspath(__file__))
+
 # ---------- 全局变量 ----------
 TEMPLATE_DIR = ""
+OUTPUT_ROOT = ""   # 输出根目录
 
 # ---------- 业务逻辑 ----------
 POINT_COLS = ["启动", "停止", "已启", "已停", "故障", "远方"]
@@ -44,7 +52,7 @@ MAPPING = {
 }
 
 missing_start_stop_devices = []
-unmatched_template_devices = []   # 新增：收集无法匹配模板的设备
+unmatched_template_devices = []
 
 def is_valid(value):
     if pd.isna(value):
@@ -111,9 +119,10 @@ def determine_template(driver_level, row):
     else:
         return None
 
-def build_output_path(domain, station, sheet, device_name):
+def build_output_path(output_root, domain, station, sheet, device_name):
+    """在输出根目录下构建完整路径"""
     station_padded = str(station).zfill(3)
-    dir_path = os.path.join(str(domain), f"drop{station_padded}")
+    dir_path = os.path.join(output_root, str(domain), f"drop{station_padded}")
     filename = f"SH{sheet}_{device_name}.cbp"
     return dir_path, filename
 
@@ -197,7 +206,6 @@ def process_single_csv(csv_path, log_callback=None):
 
         template_file = determine_template(driver_level, row)
         if template_file is None:
-            # 收集无法匹配模板的信息
             unmatched_template_devices.append({
                 "station": station,
                 "sheet": sheet,
@@ -245,7 +253,8 @@ def process_single_csv(csv_path, log_callback=None):
 
             content = content.replace(placeholder, str(value))
 
-        dir_path, filename = build_output_path(domain, station, sheet, device_name)
+        # 使用 OUTPUT_ROOT 构建完整输出路径
+        dir_path, filename = build_output_path(OUTPUT_ROOT, domain, station, sheet, device_name)
         os.makedirs(dir_path, exist_ok=True)
         output_path = os.path.join(dir_path, filename)
         with open(output_path, 'w', encoding='gb2312', newline='\n') as f:
@@ -259,24 +268,31 @@ class WorkerThread(QThread):
     log_signal = pyqtSignal(str)
     finished_signal = pyqtSignal()
 
-    def __init__(self, input_dir):
+    def __init__(self, input_dir, output_dir):
         super().__init__()
         self.input_dir = input_dir
+        self.output_dir = output_dir
 
     def log(self, msg):
         self.log_signal.emit(msg)
 
     def run(self):
         try:
-            global TEMPLATE_DIR, missing_start_stop_devices, unmatched_template_devices
+            global TEMPLATE_DIR, OUTPUT_ROOT, missing_start_stop_devices, unmatched_template_devices
             missing_start_stop_devices = []
-            unmatched_template_devices = []   # 重置
+            unmatched_template_devices = []
 
+            # 设置模板目录
             TEMPLATE_DIR = get_template_dir()
             if not os.path.isdir(TEMPLATE_DIR):
                 self.log(f"错误：模板目录 'cb' 不存在于 {TEMPLATE_DIR}")
                 self.finished_signal.emit()
                 return
+
+            # 设置输出根目录
+            OUTPUT_ROOT = self.output_dir
+            os.makedirs(OUTPUT_ROOT, exist_ok=True)
+            self.log(f"输出根目录: {OUTPUT_ROOT}")
 
             csv_files = glob.glob(os.path.join(self.input_dir, "*.csv"))
             if not csv_files:
@@ -288,13 +304,12 @@ class WorkerThread(QThread):
             for csv_file in csv_files:
                 process_single_csv(csv_file, log_callback=self.log)
 
-            # 打印驱动级5缺失启动/停止汇总
+            # 汇总输出
             if missing_start_stop_devices:
                 self.log("\n【驱动级5中启动或停止缺失的设备列表】")
                 for info in missing_start_stop_devices:
                     self.log(info)
 
-            # 打印驱动级无法匹配模板的汇总（按站号）
             if unmatched_template_devices:
                 self.log("\n【驱动级无法匹配模板的设备列表（按站号）】")
                 grouped = {}
@@ -322,32 +337,44 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("CBP 文件生成工具")
-        self.setGeometry(100, 100, 800, 600)
+        self.setGeometry(100, 100, 850, 650)
 
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
 
         layout = QVBoxLayout(central_widget)
 
-        # 选择目录行
-        dir_layout = QHBoxLayout()
-        self.dir_label = QLabel("输入目录:")
-        self.dir_path_label = QLabel("未选择")
-        self.dir_path_label.setStyleSheet("border: 1px solid gray; padding: 3px;")
-        self.choose_dir_btn = QPushButton("选择目录")
-        self.choose_dir_btn.clicked.connect(self.choose_input_dir)
-        dir_layout.addWidget(self.dir_label)
-        dir_layout.addWidget(self.dir_path_label, 1)
-        dir_layout.addWidget(self.choose_dir_btn)
-        layout.addLayout(dir_layout)
+        # ---------- 输入目录行 ----------
+        input_layout = QHBoxLayout()
+        self.input_label = QLabel("输入目录:")
+        self.input_path_label = QLabel("未选择")
+        self.input_path_label.setStyleSheet("border: 1px solid gray; padding: 3px;")
+        self.choose_input_btn = QPushButton("选择目录")
+        self.choose_input_btn.clicked.connect(self.choose_input_dir)
+        input_layout.addWidget(self.input_label)
+        input_layout.addWidget(self.input_path_label, 1)
+        input_layout.addWidget(self.choose_input_btn)
+        layout.addLayout(input_layout)
 
-        # 日志文本框
+        # ---------- 输出目录行 ----------
+        output_layout = QHBoxLayout()
+        self.output_label = QLabel("输出目录:")
+        self.output_path_label = QLabel(get_default_output_dir())
+        self.output_path_label.setStyleSheet("border: 1px solid gray; padding: 3px;")
+        self.choose_output_btn = QPushButton("选择目录")
+        self.choose_output_btn.clicked.connect(self.choose_output_dir)
+        output_layout.addWidget(self.output_label)
+        output_layout.addWidget(self.output_path_label, 1)
+        output_layout.addWidget(self.choose_output_btn)
+        layout.addLayout(output_layout)
+
+        # ---------- 日志文本框 ----------
+        layout.addWidget(QLabel("处理日志:"))
         self.log_text = QTextEdit()
         self.log_text.setReadOnly(True)
-        layout.addWidget(QLabel("处理日志:"))
         layout.addWidget(self.log_text)
 
-        # 底部按钮
+        # ---------- 底部按钮 ----------
         btn_layout = QHBoxLayout()
         self.process_btn = QPushButton("开始处理")
         self.process_btn.clicked.connect(self.start_process)
@@ -360,23 +387,35 @@ class MainWindow(QMainWindow):
         layout.addLayout(btn_layout)
 
         self.input_dir = None
+        self.output_dir = get_default_output_dir()   # 默认输出目录
         self.worker = None
 
     def choose_input_dir(self):
         dir_path = QFileDialog.getExistingDirectory(self, "选择包含CSV文件的目录")
         if dir_path:
             self.input_dir = dir_path
-            self.dir_path_label.setText(dir_path)
+            self.input_path_label.setText(dir_path)
             self.process_btn.setEnabled(True)
+
+    def choose_output_dir(self):
+        dir_path = QFileDialog.getExistingDirectory(self, "选择输出目录")
+        if dir_path:
+            self.output_dir = dir_path
+            self.output_path_label.setText(dir_path)
 
     def start_process(self):
         if not self.input_dir:
             QMessageBox.warning(self, "提示", "请先选择输入目录")
             return
+        if not self.output_dir:
+            QMessageBox.warning(self, "提示", "请先选择输出目录")
+            return
 
         self.process_btn.setEnabled(False)
         self.log_text.append("开始处理...")
-        self.worker = WorkerThread(self.input_dir)
+        self.log_text.append(f"输入目录: {self.input_dir}")
+        self.log_text.append(f"输出目录: {self.output_dir}")
+        self.worker = WorkerThread(self.input_dir, self.output_dir)
         self.worker.log_signal.connect(self.append_log)
         self.worker.finished_signal.connect(self.on_finished)
         self.worker.start()
