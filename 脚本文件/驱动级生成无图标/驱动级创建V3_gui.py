@@ -96,8 +96,12 @@ def determine_template(driver_level, row):
             return "MOTORII_NOT_ERR.cbp"
         elif has_start and has_stop and has_started:
             return "MOTORII_NOT_ERR_1DI.cbp"
-        elif has_start and has_started:
+        # elif has_start and has_started:
+        #     return "MOTORII _1DO_NOT_ERR_1DI.cbp"
+        elif has_start and has_started and has_fault:
             return "MOTORII _1DO_NOT_ERR_1DI.cbp"
+        elif has_start and has_started and not has_fault:
+            return "MOTORII _1DO_NOT_1DI.cbp"
         else:
             return None
 
