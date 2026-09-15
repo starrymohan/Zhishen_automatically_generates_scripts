@@ -1,6 +1,7 @@
 import csv
 import os
 
+# TEMPLATE_DIR = '.'
 TEMPLATE_DIR = './temple'
 CSV_FILE = '启动跳闸弹窗.csv'
 OUTPUT_BASE = '.'
@@ -8,7 +9,12 @@ OUTPUT_BASE = '.'
 PLACEHOLDERS = [f"1-{i}S" for i in range(1, 21)]
 
 def pad_dpu(dpu):
+    """补零至两位（用于 DPUNUM、DPUNNUM）"""
     return f"{int(dpu):02d}"
+
+def pad_dpu_3(dpu):
+    """补零至三位（用于 DPU3NUM）"""
+    return f"{int(dpu):03d}"
 
 def count_non_empty(row):
     return sum(1 for ph in PLACEHOLDERS if row.get(ph, '').strip())
@@ -22,7 +28,7 @@ def choose_template_size(count):
         return 20
 
 def read_text_file(filepath):
-    """尝试多种编码读取文本文件，返回内容字符串"""
+    """尝试多种编码读取文本文件"""
     encodings = ['utf-8-sig', 'utf-8', 'gb18030', 'gbk', 'gb2312', 'latin-1']
     for enc in encodings:
         try:
@@ -30,12 +36,12 @@ def read_text_file(filepath):
                 return f.read()
         except UnicodeDecodeError:
             continue
-    # 保底：用 latin-1 不会出错（但可能有乱码）
+    # 保底
     with open(filepath, 'r', encoding='latin-1') as f:
         return f.read()
 
 def write_text_file(filepath, content):
-    """尝试用 gb2312 写入，若失败则用 gb18030"""
+    """优先使用 gb2312，若失败则用 gb18030"""
     try:
         with open(filepath, 'w', encoding='gb2312', newline='\n') as f:
             f.write(content)
@@ -45,13 +51,20 @@ def write_text_file(filepath, content):
             f.write(content)
 
 def replace_line(line, domain, title, dpu, sheet):
-    dpu_padded = pad_dpu(dpu)
+    dpu_padded_2 = pad_dpu(dpu)
+    dpu_padded_3 = pad_dpu_3(dpu)
+
+    # 通用占位符替换
     line = line.replace('DM', domain)
-    line = line.replace('标题', title)
-    line = line.replace('DPUNNUM', dpu_padded)
-    g_str = f"G{dpu_padded}P{sheet}PERMS"
+    line = line.replace('标  题', title)
+    line = line.replace('DPUNNUM', dpu_padded_2)          # 两位
+    line = line.replace('DPUNUM', dpu_padded_2)           # 两位（第二行也替换）
+    line = line.replace('DPU3NUM', dpu_padded_3)          # 新增三位补零
+
+    # 特殊组合占位符
+    g_str = f"G{dpu_padded_2}P{sheet}PERMS"
     line = line.replace('GDPUNUMPSHEETNUMPERMS', g_str)
-    line = line.replace('DPUNUM', dpu_padded)
+
     return line
 
 def replace_third_line(line, row):
@@ -68,8 +81,8 @@ def replace_third_line(line, row):
 def process_row(row, domain, dpu, sheet, device, action):
     cnt = count_non_empty(row)
     size = choose_template_size(cnt)
-    # template_name = f"{action}弹窗{size}.txt"
-    template_name = f"{action}弹窗{size}.gbw"
+    # template_name = f"{action}弹窗{size}.gbw"
+    template_name = f"{action}弹窗{size}.txt"
     template_path = os.path.join(TEMPLATE_DIR, template_name)
 
     try:
@@ -87,12 +100,13 @@ def process_row(row, domain, dpu, sheet, device, action):
 
     output_content = '\n'.join(lines)
 
-    dpu_padded = pad_dpu(dpu)
+    dpu_padded_2 = pad_dpu(dpu)
     suffix = '启动允许条件' if action == '启动' else '跳闸及首出'
-    # filename = f"{dpu_padded}_{sheet}_{device}{suffix}.txt"
-    filename = f"{dpu_padded}_{sheet}_{device}{suffix}.gbw"
+    # filename = f"{dpu_padded_2}_{sheet}_{device}{suffix}.gbw"
+    filename = f"{dpu_padded_2}_{sheet}_{device}{suffix}.txt"
 
-    folder = os.path.join(OUTPUT_BASE, domain, dpu_padded)
+
+    folder = os.path.join(OUTPUT_BASE, domain, dpu_padded_2)
     os.makedirs(folder, exist_ok=True)
     filepath = os.path.join(folder, filename)
 
@@ -100,9 +114,7 @@ def process_row(row, domain, dpu, sheet, device, action):
     print(f"已生成：{filepath}")
 
 def main():
-    # 读取 CSV 同样使用自动检测
     content = read_text_file(CSV_FILE)
-    # 使用 csv 模块解析文本内容（需要按行分割）
     lines = content.splitlines()
     reader = csv.DictReader(lines)
     for row in reader:

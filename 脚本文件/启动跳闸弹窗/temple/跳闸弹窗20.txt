@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='GB2312' ?>
+<wnd ft="gbw" ver="2.0" unit="0" width="292.000000" height="468.000000" bgcolor="4290822336" bgimage="Qt::SolidPattern" zbase="2000.000000" printp="" printh="0" layers="4 层,0,1,0,0, ;3 层,1,1,0,0, ;2 层,2,1,0,0, ;1 层,3,1,0,0, ;0 层,4,1,0,0, ;背景,5,1,1,0, " udefpros="[*OnTimer@定时器@@3@@@0@@]">
+	<text utype="text" name="text732" id="{38e97c40-7182-4af1-9edb-a53b2dd1265e}" fname="" x="123.917" y="14.8005" z="0" label="标  题" font="宋体,11,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<label>
+			<![CDATA[标  题]]>
+		</label>
+	</text>
+	<button utype="button" name="button210" id="{51193e70-40dd-4584-a864-82ee4a4834f6}" fname="" x="248.802" y="437.463" z="1" pencolor="4290822336" penstyle="1" penwidth="1" brushcolor="4281492630" brushimage="Qt::SolidPattern" hide="0" label="返回" font="SimSun,15,-1,5,50,0,0,0,0,0" x1="0" y1="0" x2="35.2407" y2="24.5993" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@][*InScpt@变量@@0@@type=1;popup=返回操作区;setIndex=0;set=DPUNNUMSHEETNUM;res=0;@1@@]" cnnts=""/>
+	<line utype="line" name="line490" id="{095afd05-5975-415d-8fa2-6ba2e1f294ff}" fname="" x="25.2397" y="5.35275" z="2" pencolor="4294967295" penstyle="1" penwidth="1" iscurve="0" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<point x="0" y="31.2682"/>
+		<point x="0" y="0"/>
+		<point x="241.32" y="0"/>
+	</line>
+	<line utype="line" name="line491" id="{1cf6c49c-a0bd-40e6-9b0c-a653c773f3b0}" fname="" x="25.2397" y="5.35275" z="3" pencolor="4284506208" penstyle="1" penwidth="1" iscurve="0" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<point x="241.32" y="0"/>
+		<point x="241.32" y="31.2682"/>
+		<point x="0" y="31.2682"/>
+	</line>
+	<line utype="line" name="line492" id="{b773b859-7f70-4d1f-941a-34cdd3ce778c}" fname="" x="5.16475" y="12.2265" z="4" pencolor="4284506208" penstyle="1" penwidth="1" iscurve="0" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<point x="12.9757" y="0"/>
+		<point x="0" y="0"/>
+		<point x="0" y="451.62"/>
+		<point x="280.357" y="451.62"/>
+		<point x="280.357" y="0"/>
+		<point x="267.435" y="0"/>
+	</line>
+	<ellipse utype="ellipse" name="ellipse188" id="{f8dd1620-1a84-437a-9b6e-ddc5fefa8700}" fname="" x="11.5887" y="49.4618" z="5" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0692" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON1)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<text utype="text" name="text733" id="{5c6c3872-5d81-451b-a3da-78d0d9f7ebb3}" fname="" x="29.784" y="50.3685" z="6" label="1-1S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON1)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-1S]]>
+		</label>
+	</text>
+	<button utype="button" name="button211" id="{08591970-5a3b-4c30-9f61-128f760716bc}" fname="" x="14.0525" y="443.781" z="7" pencolor="4278190080" penstyle="1" penwidth="1" brushcolor="4290822336" brushimage="Qt::SolidPattern" hide="0" label="首出确认" font="SimSun,12,-1,5,50,0,0,0,0,0" x1="0" y1="0" x2="54.166" y2="17.316" trans="" layer="0" editable="0" udefpros='[*InIf@条件语句@@3@@@@@][*InScpt@变量@@0@@type=2;cmds="O_P1 DM:ADPU3NUMZ209";repeat=0;interval=0;timeLimit=@1@@]' cnnts=""/>
+	<text utype="text" name="text734" id="{18b0954c-949a-4fab-a052-2bdd18a846a2}" fname="" x="29.784" y="68.8252" z="8" label="1-2S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON2)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-2S]]>
+		</label>
+	</text>
+	<text utype="text" name="text735" id="{2c9e897f-8f84-43b0-8654-1065b9be25d0}" fname="" x="29.784" y="105.739" z="9" label="1-4S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON4)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-4S]]>
+		</label>
+	</text>
+	<text utype="text" name="text736" id="{78eba186-906c-48cc-b045-9394d08a0e85}" fname="" x="29.784" y="87.282" z="10" label="1-3S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON3)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-3S]]>
+		</label>
+	</text>
+	<text utype="text" name="text737" id="{93c484a8-12c3-43b4-9715-23ba7931a8a6}" fname="" x="29.784" y="124.195" z="11" label="1-5S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON5)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-5S]]>
+		</label>
+	</text>
+	<text utype="text" name="text738" id="{8ec7de36-33dd-410d-bf04-0baaf29075e1}" fname="" x="29.784" y="142.652" z="12" label="1-6S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON6)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-6S]]>
+		</label>
+	</text>
+	<text utype="text" name="text739" id="{f0b300b8-5f8c-4cdb-8e84-a70dc94fd401}" fname="" x="29.784" y="161.109" z="13" label="1-7S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON7)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-7S]]>
+		</label>
+	</text>
+	<text utype="text" name="text740" id="{04c39771-3d2d-4bfe-8fa8-9aad2d3ee3aa}" fname="" x="29.784" y="198.022" z="14" label="1-9S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON9)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-9S]]>
+		</label>
+	</text>
+	<text utype="text" name="text741" id="{f4d925ca-b77f-49b6-881a-47874310cf49}" fname="" x="29.784" y="179.566" z="15" label="1-8S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON8)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-8S]]>
+		</label>
+	</text>
+	<text utype="text" name="text742" id="{e3cb06ec-d65a-4bd4-9e73-4983f0691f8c}" fname="" x="29.784" y="216.479" z="16" label="1-10S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON10)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-10S]]>
+		</label>
+	</text>
+	<text utype="text" name="text743" id="{d717067d-54d5-45ec-a22e-bd792cc0580c}" fname="" x="29.784" y="234.936" z="17" label="1-11S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON11)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-11S]]>
+		</label>
+	</text>
+	<text utype="text" name="text744" id="{d9d4f874-cb91-46ab-a530-40bd876f7bf3}" fname="" x="29.784" y="253.393" z="18" label="1-12S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON12)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-12S]]>
+		</label>
+	</text>
+	<text utype="text" name="text745" id="{0d0e39b8-ace4-4cbd-8270-769749e681cc}" fname="" x="29.784" y="290.306" z="19" label="1-14S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON14)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-14S]]>
+		</label>
+	</text>
+	<text utype="text" name="text746" id="{028c1f8d-bc28-4776-ae2d-4516ed34668d}" fname="" x="29.784" y="271.849" z="20" label="1-13S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1.A2==ON13)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-13S]]>
+		</label>
+	</text>
+	<text utype="text" name="text747" id="{440482fc-4933-4f9a-a245-d23e43c1646b}" fname="" x="29.784" y="308.763" z="21" label="2-1S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP2.A2==ON1)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[2-1S]]>
+		</label>
+	</text>
+	<text utype="text" name="text748" id="{7c1e24c3-deb2-41db-ae1c-caf75dfdbe10}" fname="" x="29.784" y="327.22" z="22" label="2-2S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP2.A2==ON2)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[2-2S]]>
+		</label>
+	</text>
+	<text utype="text" name="text749" id="{e3314875-3a78-44df-a7f4-62a36ff96085}" fname="" x="29.784" y="345.676" z="23" label="2-3S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP2.A2==ON3)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[2-3S]]>
+		</label>
+	</text>
+	<text utype="text" name="text750" id="{7e30cca3-c04c-4656-8dd6-d6049fefa9a3}" fname="" x="29.784" y="382.59" z="24" label="2-5S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP2.A2==ON5)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[2-5S]]>
+		</label>
+	</text>
+	<text utype="text" name="text751" id="{7eaddf08-ff6f-4cce-9e78-e3dfbb816d1f}" fname="" x="29.784" y="364.133" z="25" label="2-4S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP2.A2==ON4)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[2-4S]]>
+		</label>
+	</text>
+	<text utype="text" name="text752" id="{3ae6d61f-36b6-4306-91b0-44508ae36d03}" fname="" x="29.784" y="401.573" z="26" label="2-6S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP2.A2==ON6)COLOR(#a01400,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[2-6S]]>
+		</label>
+	</text>
+	<ellipse utype="ellipse" name="ellipse189" id="{e52f9e0b-c172-4b67-8e50-1d408feb8683}" fname="" x="11.5887" y="67.8893" z="27" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0692" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON2)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse190" id="{60049e77-376c-4167-a44b-5d69d07b10df}" fname="" x="11.5887" y="86.3167" z="28" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0692" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON3)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse191" id="{e1659c02-7ce0-487b-8b3b-72d07e7bb986}" fname="" x="11.5887" y="104.744" z="29" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0693" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON4)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse192" id="{82003b42-d7b3-4292-aced-3642376b39b6}" fname="" x="11.5887" y="123.172" z="30" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0693" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON5)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse193" id="{42b00605-4487-4ab3-ae55-49c8d1a24bae}" fname="" x="11.5887" y="141.599" z="31" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0693" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON6)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse194" id="{3eef06ac-a927-4157-8b3c-192ce55f9605}" fname="" x="11.5887" y="160.027" z="32" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0692" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON7)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse195" id="{9dde588c-d0a2-4020-a11c-57aec685de56}" fname="" x="11.5887" y="178.454" z="33" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0692" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON8)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse196" id="{d697fa15-7324-4aa7-a91d-b953901b1d8f}" fname="" x="11.5887" y="196.882" z="34" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0693" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON9)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse197" id="{fb51c055-ee2d-4705-a2cb-f7bbb4ea9024}" fname="" x="11.5887" y="215.309" z="35" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0692" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON10)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse198" id="{95b5fe21-697b-4fb5-a13d-4baea8bd4b20}" fname="" x="11.5887" y="233.737" z="36" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0693" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON11)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse199" id="{29442660-1262-4d34-90a5-a8428d483fb8}" fname="" x="11.5887" y="252.164" z="37" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0693" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON12)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse200" id="{c16a047c-35bf-4136-9af8-656945a56d66}" fname="" x="11.5887" y="270.592" z="38" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0693" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON13)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse201" id="{9c9226ed-d9e8-40eb-8bff-7941272b1790}" fname="" x="11.5887" y="289.019" z="39" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0692" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST1.A2==ON14)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse202" id="{96e06c19-61bc-4903-8e8f-42eb1e18afb4}" fname="" x="11.5887" y="308.558" z="40" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0692" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST2.A2==ON1)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse203" id="{2f1ee3c0-a307-4c21-abb0-4e3c18ad0e2c}" fname="" x="11.5887" y="326.986" z="41" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0692" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST2.A2==ON2)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse204" id="{a50b5ded-d5ee-46a3-a463-145d0af6275c}" fname="" x="11.5887" y="345.413" z="42" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0693" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST2.A2==ON3)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse205" id="{61df3f0b-d72b-493f-bc59-9d57531f2dba}" fname="" x="11.5887" y="363.841" z="43" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0692" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST2.A2==ON4)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse206" id="{7ee197c7-c78a-4544-bb1f-b2ed51947e04}" fname="" x="11.5887" y="382.414" z="44" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0693" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST2.A2==ON5)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+	<ellipse utype="ellipse" name="ellipse207" id="{8f5506d8-2b34-4b4f-b36c-996c87138249}" fname="" x="11.5887" y="400.93" z="45" pencolor="4289045925" penstyle="1" penwidth="1" brushcolor="4289045925" brushimage="Qt::SolidPattern" close="1" stangle="0" spangle="5760" x1="0" y1="0" x2="12.9757" y2="14.0692" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(G01P209PTRIP1ST2.A2==ON6)COLOR(#a01400,#a01400,#c0c0c0)@@@]" cnnts=""/>
+</wnd>
+

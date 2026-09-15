@@ -54,7 +54,7 @@ read_change = []
 # ['INPUTA12', 'INPUTB12', 'OUTPUTA12', 'OUTPUTB12', ''],
 # ['INPUTA13', 'INPUTB13', 'OUTPUTA13', 'OUTPUTB13', ''],
 # 。。。
-with open("模拟量V1.txt","r") as f:
+with open("模拟量V1 - 副本.txt","r") as f:
     readed10to10=f.read()
     read_change = readed10to10[:]
 

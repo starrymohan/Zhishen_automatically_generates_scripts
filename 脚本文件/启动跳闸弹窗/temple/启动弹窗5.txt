@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='GB2312' ?>
+<wnd ft="gbw" ver="2.0" unit="0" width="292.000000" height="240.000000" bgcolor="4290822336" bgimage="Qt::SolidPattern" zbase="2000.000000" printp="" printh="0" layers="4 层,0,1,0,0, ;3 层,1,1,0,0, ;2 层,2,1,0,0, ;1 层,3,1,0,0, ;0 层,4,1,0,0, ;背景,5,1,1,0, " udefpros="[*OnTimer@定时器@@3@@@0@@]">
+	<text utype="text" name="text327" id="{7e93bdd6-4fbb-4060-8081-419452e94b32}" fname="" x="123.753" y="5.5125" z="0" label="标  题" font="宋体,13,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<label>
+			<![CDATA[标  题]]>
+		</label>
+	</text>
+	<button utype="button" name="button81" id="{982bbefd-e0ab-42a4-ae72-1a8585f003c6}" fname="" x="248.802" y="212.1" z="1" pencolor="4290822336" penstyle="1" penwidth="1" brushcolor="4281492630" brushimage="Qt::SolidPattern" hide="0" label="返回" font="SimSun,15,-1,5,50,0,0,0,0,0" x1="0" y1="0" x2="35.2407" y2="24.855" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@][*InScpt@变量@@0@@type=1;popup=返回操作区;setIndex=0;set=DPUNNUMSHEETNUM;res=0;@1@@]" cnnts=""/>
+	<line utype="line" name="line156" id="{3f85653e-d518-4248-8a4e-c9ebae134855}" fname="" x="25.2397" y="2.745" z="2" pencolor="4294967295" penstyle="1" penwidth="1" iscurve="0" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<point x="0" y="32.535"/>
+		<point x="0" y="0"/>
+		<point x="241.32" y="0"/>
+	</line>
+	<line utype="line" name="line157" id="{2889d28e-c35b-4e65-9eb5-831d3c2a6375}" fname="" x="25.2397" y="2.745" z="3" pencolor="4284506208" penstyle="1" penwidth="1" iscurve="0" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<point x="241.32" y="0"/>
+		<point x="241.32" y="32.535"/>
+		<point x="0" y="32.535"/>
+	</line>
+	<line utype="line" name="line158" id="{b1d0bed0-63c4-499d-8c10-5f9b2d483a46}" fname="" x="5.16475" y="14.25" z="4" pencolor="4284506208" penstyle="1" penwidth="1" iscurve="0" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<point x="12.9757" y="0"/>
+		<point x="0" y="0"/>
+		<point x="0" y="223.62"/>
+		<point x="280.357" y="223.62"/>
+		<point x="280.357" y="0"/>
+		<point x="267.435" y="0"/>
+	</line>
+	<text utype="text" name="text328" id="{5b986871-1426-4664-ae9e-21ed74e6287f}" fname="" x="18.4508" y="47.37" z="5" label="1-1S" font="宋体,11,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON1)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-1S]]>
+		</label>
+	</text>
+	<text utype="text" name="text329" id="{26c35713-9d20-4350-b432-2e90dd2058ce}" fname="" x="18.4508" y="69.465" z="6" label="1-2S" font="宋体,11,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON2)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-2S]]>
+		</label>
+	</text>
+	<text utype="text" name="text330" id="{f816a7f7-fb8f-44ed-bc4b-8bb51fd1aadf}" fname="" x="18.4508" y="113.655" z="7" label="1-4S" font="宋体,11,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON4)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-4S]]>
+		</label>
+	</text>
+	<text utype="text" name="text331" id="{9cb354de-d90d-4043-842a-bd6a2d65ccaa}" fname="" x="18.4508" y="91.56" z="8" label="1-3S" font="宋体,11,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON3)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-3S]]>
+		</label>
+	</text>
+	<text utype="text" name="text332" id="{db3e9c6b-da51-459c-8f80-a55d6f0ce8ec}" fname="" x="18.4508" y="176.765" z="9" label="1-5S
+" font="宋体,11,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON5)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-5S
+]]>
+		</label>
+	</text>
+</wnd>
+

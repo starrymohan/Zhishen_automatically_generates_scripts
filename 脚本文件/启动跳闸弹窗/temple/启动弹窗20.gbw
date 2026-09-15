@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='GB2312' ?>
+<wnd ft="gbw" ver="2.0" unit="0" width="292.000000" height="468.000000" bgcolor="4290822336" bgimage="Qt::SolidPattern" zbase="2000.000000" printp="" printh="0" layers="4 层,0,1,0,0, ;3 层,1,1,0,0, ;2 层,2,1,0,0, ;1 层,3,1,0,0, ;0 层,4,1,0,0, ;背景,5,1,1,0, " udefpros="[*OnTimer@定时器@@3@@@0@@]">
+	<text utype="text" name="text360" id="{6939ab5c-027e-4e31-bee3-7716c1f8315a}" fname="" x="123.917" y="14.8005" z="0" label="标  题" font="宋体,11,-1,5,50,0,0,0,0,0" color="4278190080" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<label>
+			<![CDATA[标  题]]>
+		</label>
+	</text>
+	<button utype="button" name="button84" id="{8ca65c11-f701-4797-af5d-919ea5c2c93c}" fname="" x="248.802" y="437.463" z="1" pencolor="4290822336" penstyle="1" penwidth="1" brushcolor="4281492630" brushimage="Qt::SolidPattern" hide="0" label="返回" font="SimSun,15,-1,5,50,0,0,0,0,0" x1="0" y1="0" x2="35.2407" y2="24.5993" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@][*InScpt@变量@@0@@type=1;popup=返回操作区;setIndex=0;set=DPUNNUMSHEETNUM;res=0;@1@@]" cnnts=""/>
+	<line utype="line" name="line165" id="{ad4f0b5b-47a1-4bf0-bf84-90c0ab461ea2}" fname="" x="25.2397" y="5.35275" z="2" pencolor="4294967295" penstyle="1" penwidth="1" iscurve="0" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<point x="0" y="31.2682"/>
+		<point x="0" y="0"/>
+		<point x="241.32" y="0"/>
+	</line>
+	<line utype="line" name="line166" id="{2266d375-f52a-4efc-8037-02e47634a7cd}" fname="" x="25.2397" y="5.35275" z="3" pencolor="4284506208" penstyle="1" penwidth="1" iscurve="0" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<point x="241.32" y="0"/>
+		<point x="241.32" y="31.2682"/>
+		<point x="0" y="31.2682"/>
+	</line>
+	<line utype="line" name="line167" id="{76dc6b1f-3ceb-4bd1-9c35-073f410adcf9}" fname="" x="5.16475" y="12.2265" z="4" pencolor="4284506208" penstyle="1" penwidth="1" iscurve="0" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@@@@]" cnnts="">
+		<point x="12.9757" y="0"/>
+		<point x="0" y="0"/>
+		<point x="0" y="451.62"/>
+		<point x="280.357" y="451.62"/>
+		<point x="280.357" y="0"/>
+		<point x="267.435" y="0"/>
+	</line>
+	<text utype="text" name="text361" id="{459263aa-86fa-4308-857c-884abd43872b}" fname="" x="18.3412" y="50.3685" z="5" label="1-1S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON1)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-1S]]>
+		</label>
+	</text>
+	<text utype="text" name="text362" id="{4348dd98-aa7d-40c5-9bc0-85ba389145e7}" fname="" x="18.3412" y="69.0007" z="6" label="1-2S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON2)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-2S]]>
+		</label>
+	</text>
+	<text utype="text" name="text363" id="{8f5eeeb3-e091-40dd-a774-8f2229bb8312}" fname="" x="18.3412" y="106.265" z="7" label="1-4S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON4)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-4S]]>
+		</label>
+	</text>
+	<text utype="text" name="text364" id="{7e734fc6-af01-4684-8126-c7d27ba09f8d}" fname="" x="18.3412" y="87.633" z="8" label="1-3S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON3)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-3S]]>
+		</label>
+	</text>
+	<text utype="text" name="text365" id="{78548e0a-8bec-4ef0-8cce-c53c19252675}" fname="" x="18.3412" y="124.897" z="9" label="1-5S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON5)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-5S]]>
+		</label>
+	</text>
+	<text utype="text" name="text366" id="{15091e21-fb59-439b-9981-661c749a4936}" fname="" x="18.3412" y="143.53" z="10" label="1-6S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON6)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-6S]]>
+		</label>
+	</text>
+	<text utype="text" name="text367" id="{79e3ab4e-c414-49cc-bcc5-1999ad968e96}" fname="" x="18.3412" y="162.162" z="11" label="1-7S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON7)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-7S]]>
+		</label>
+	</text>
+	<text utype="text" name="text368" id="{8643d6b9-f39d-4de3-9d1e-a33cf74a511a}" fname="" x="18.3412" y="199.426" z="12" label="1-9S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON9)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-9S]]>
+		</label>
+	</text>
+	<text utype="text" name="text369" id="{28993d00-e88e-461c-9e21-2fd6402ff7f8}" fname="" x="18.3412" y="180.794" z="13" label="1-8S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON8)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-8S]]>
+		</label>
+	</text>
+	<text utype="text" name="text370" id="{3c42727f-6d0c-46bb-bfe8-96704f15d695}" fname="" x="18.3412" y="218.059" z="14" label="1-10S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON10)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-10S]]>
+		</label>
+	</text>
+	<text utype="text" name="text371" id="{2a9f8049-e7b3-4fc6-9380-39b8e23965dd}" fname="" x="18.3412" y="236.691" z="15" label="1-11S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON11)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-11S]]>
+		</label>
+	</text>
+	<text utype="text" name="text372" id="{89937f25-668c-4dfd-aa66-24d50a64bae3}" fname="" x="18.3412" y="255.323" z="16" label="1-12S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON12)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-12S]]>
+		</label>
+	</text>
+	<text utype="text" name="text373" id="{17a647ee-448b-418d-8ac4-8cc2cd3d7d63}" fname="" x="18.3412" y="292.588" z="17" label="1-14S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON14)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-14S]]>
+		</label>
+	</text>
+	<text utype="text" name="text374" id="{34b7e338-3fd4-45ed-9786-f7c3a7abde9e}" fname="" x="18.3412" y="273.956" z="18" label="1-13S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON13)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-13S]]>
+		</label>
+	</text>
+	<text utype="text" name="text375" id="{237477f0-d059-41f1-8a41-9c2d1d041a07}" fname="" x="18.3412" y="311.22" z="19" label="1-15S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON15)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-15S]]>
+		</label>
+	</text>
+	<text utype="text" name="text376" id="{45f71edf-3f89-4c44-9dd1-166872922727}" fname="" x="18.3412" y="329.852" z="20" label="1-16S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON16)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-16S]]>
+		</label>
+	</text>
+	<text utype="text" name="text377" id="{0a450277-68c9-4ab4-a91d-5c3c7ffbb4c9}" fname="" x="18.3412" y="348.484" z="21" label="1-17S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON17)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-17S]]>
+		</label>
+	</text>
+	<text utype="text" name="text378" id="{75f82a68-ffc3-43be-aacb-d0f0bc27cf5f}" fname="" x="18.3412" y="385.749" z="22" label="1-19S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON19)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-19S]]>
+		</label>
+	</text>
+	<text utype="text" name="text379" id="{4e1111d0-e60d-4618-9970-68cddea5b7bd}" fname="" x="18.3412" y="367.117" z="23" label="1-18S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON18)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-18S]]>
+		</label>
+	</text>
+	<text utype="text" name="text380" id="{39eb6e4f-d34b-4e84-bcca-9f1fc4c24225}" fname="" x="18.3412" y="404.82" z="24" label="1-20S" font="宋体,9,-1,5,50,0,0,0,0,0" color="4281492630" trans="" layer="0" editable="0" udefpros="[*InIf@条件语句@@3@@IF(GDPUNUMPSHEETNUMPERMS.A2==ON20)COLOR(#008000,#c0c0c0,#c0c0c0)@@@]" cnnts="">
+		<label>
+			<![CDATA[1-20S]]>
+		</label>
+	</text>
+</wnd>
+
