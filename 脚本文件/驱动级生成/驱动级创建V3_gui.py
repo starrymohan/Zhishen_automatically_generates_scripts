@@ -28,7 +28,7 @@ def get_default_output_dir():
 
 # ---------- 全局变量 ----------
 TEMPLATE_DIR = ""
-OUTPUT_ROOT = ""   # 输出根目录
+OUTPUT_ROOT = ""
 
 # ---------- 业务逻辑 ----------
 POINT_COLS = ["启动", "停止", "已启", "已停", "故障", "远方"]
@@ -111,6 +111,9 @@ def determine_template(driver_level, row):
             return "SCSOV.cbp"
         elif has_start and not has_started and not has_remote:
             return "SCSOV_1DO.cbp"
+        elif not has_started and has_remote and has_start:
+            # 新增：只有已启和远方（无启动）
+            return "SCSOV_1DO_NOT.cbp"
         else:
             return None
 
@@ -120,7 +123,6 @@ def determine_template(driver_level, row):
         return None
 
 def build_output_path(output_root, domain, station, sheet, device_name):
-    """在输出根目录下构建完整路径"""
     station_padded = str(station).zfill(3)
     dir_path = os.path.join(output_root, str(domain), f"drop{station_padded}")
     filename = f"SH{sheet}_{device_name}.cbp"
@@ -253,7 +255,6 @@ def process_single_csv(csv_path, log_callback=None):
 
             content = content.replace(placeholder, str(value))
 
-        # 使用 OUTPUT_ROOT 构建完整输出路径
         dir_path, filename = build_output_path(OUTPUT_ROOT, domain, station, sheet, device_name)
         os.makedirs(dir_path, exist_ok=True)
         output_path = os.path.join(dir_path, filename)
@@ -282,14 +283,12 @@ class WorkerThread(QThread):
             missing_start_stop_devices = []
             unmatched_template_devices = []
 
-            # 设置模板目录
             TEMPLATE_DIR = get_template_dir()
             if not os.path.isdir(TEMPLATE_DIR):
                 self.log(f"错误：模板目录 'cb' 不存在于 {TEMPLATE_DIR}")
                 self.finished_signal.emit()
                 return
 
-            # 设置输出根目录
             OUTPUT_ROOT = self.output_dir
             os.makedirs(OUTPUT_ROOT, exist_ok=True)
             self.log(f"输出根目录: {OUTPUT_ROOT}")
@@ -304,7 +303,6 @@ class WorkerThread(QThread):
             for csv_file in csv_files:
                 process_single_csv(csv_file, log_callback=self.log)
 
-            # 汇总输出
             if missing_start_stop_devices:
                 self.log("\n【驱动级5中启动或停止缺失的设备列表】")
                 for info in missing_start_stop_devices:
@@ -387,7 +385,7 @@ class MainWindow(QMainWindow):
         layout.addLayout(btn_layout)
 
         self.input_dir = None
-        self.output_dir = get_default_output_dir()   # 默认输出目录
+        self.output_dir = get_default_output_dir()
         self.worker = None
 
     def choose_input_dir(self):
